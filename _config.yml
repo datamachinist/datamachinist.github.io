@@ -21,8 +21,12 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Your Name"
 description              : "An amazing website."
-url                      : https://datamachinist.github.io 
-baseurl                  : /  # /datamachinist.github.io # the subpath of your site, e.g. "/blog"
+
+#url                      : https://datamachinist.github.io 
+#baseurl                  : /  # /datamachinist.github.io # the subpath of your site, e.g. "/blog"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
 repository               : datamachinist/datamachinist.github.io
 domain                   : datamachinist.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
