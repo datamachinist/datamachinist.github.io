@@ -20,15 +20,19 @@ foo:
 
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: /docs/quick-start-guide/
-  - title: "About"
+  - title: "Reinforcement Learning"
+    url: /reinforcement_learning/
+  - title: "Data Science Dictionary"
     url: /about/
-  - title: "Sample Posts"
+  - title: "Deep Learning"
     url: /year-archive/
-  - title: "Sample Collections"
+  - title: "Optimisation"
     url: /collection-archive/
-  - title: "Terms &amp; Privacy Policy"
+  - title: "Supervised Learning"
+    url: /terms/
+  - title: "Cheat Sheets"
+    url: /terms/
+  - title: "Anomaly Detection"
     url: /terms/
 
 

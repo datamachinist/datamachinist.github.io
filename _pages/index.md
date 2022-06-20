@@ -8,27 +8,55 @@ header:
 excerpt: >
   A blog on applied machine learning and data science.
 feature_row:
-  - image_path: /assets/images/mm-customizable-feature.png
-    alt: "customizable"
-    title: "Super customizable"
-    excerpt: "Everything from the menus, sidebars, comments, and more can be configured or set with YAML Front Matter."
-    url: "/docs/configuration/"
+  - image_path: /assets/images/datamachinist/RL2_resized.png
+    alt: "reinforcement learning"
+    title: "Reinforcement Learning"
+    excerpt: "A series of tutorials on reinforcement learning, mainly for robotics applications."
+    url: "/reinforcement_learning/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
-  - image_path: /assets/images/mm-responsive-feature.png
-    alt: "fully responsive"
-    title: "Responsive layouts"
-    excerpt: "Built with HTML5 + CSS3. All layouts are fully responsive with helpers to augment your content."
+  - image_path: /assets/images/datamachinist/dictionary.jpg
+    alt: "data science"
+    title: "Data Science Dictionary"
+    excerpt: "An extensive (but not exhaustive) list of definition of data science terms."
     url: "/docs/layouts/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
-  - image_path: /assets/images/mm-free-feature.png
-    alt: "100% free"
-    title: "100% free"
-    excerpt: "Free to use however you want under the MIT License. Clone it, fork it, customize it... whatever!"
+  - image_path: /assets/images/datamachinist/deep_learning.png
+    alt: "deep learning"
+    title: "Deep Learning"
+    excerpt: "Learn about deep learning and neural networks, starting from the basics."
     url: "/docs/license/"
     btn_class: "btn--primary"
     btn_label: "Learn more"      
+  - image_path: /assets/images/datamachinist/optimization.png
+    alt: "Optimisation"
+    title: "Optimisation"
+    excerpt: "A blog series about optimisation, including evolutionary and Bayesian optimisation."
+    url: "/docs/license/"
+    btn_class: "btn--primary"
+    btn_label: "Learn more" 
+  - image_path: /assets/images/datamachinist/supervised.jpg
+    alt: "supervised learning"
+    title: "Supervised Learning"
+    excerpt: "Determining the relationship between input and output variables, given a training data set of labelled observations."
+    url: "/docs/license/"
+    btn_class: "btn--primary"
+    btn_label: "Learn more"     
+  - image_path: /assets/images/datamachinist/cheat_sheet_resized.jpeg
+    alt: "cheat sheets"
+    title: "Cheat Sheets"
+    excerpt: "Remembering commands and syntax for the various tools used in programming can be a daunting task. Here are some handy cheat sheets that can help you with this."
+    url: "/docs/license/"
+    btn_class: "btn--primary"
+    btn_label: "Learn more"   
+  - image_path: /assets/images/datamachinist/anomaly.png
+    alt: "anomaly detection"
+    title: "Anomaly Detection for Time Series"
+    excerpt: "A review of the different anomaly detection approaches for time series data."
+    url: "/docs/license/"
+    btn_class: "btn--primary"
+    btn_label: "Learn more"           
 ---
 
 {% include feature_row %}
