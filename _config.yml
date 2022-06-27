@@ -97,9 +97,6 @@ analytics:
     tracking_id          : "G-23CLECJK3E" # Replace this with your ID, or delete
     anonymize_ip         : true
 
-G-23CLECJK3E
-
-
 # Site Author
 author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier

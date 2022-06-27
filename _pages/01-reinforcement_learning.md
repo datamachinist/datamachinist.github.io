@@ -9,15 +9,17 @@ toc: true
 
 In this tutorial series, we will learn about reinforcement learning and its application in robotics.
 
-<!-- List all the posts with the category 'reinforcement learning' -->
+<!-- Create array of posts with category 'Reinforcement Learning' and sort them alphabetically -->
+
+{% assign sortedPosts = site.categories['reinforcement learning'] | sort: 'title' %}
+
+<!-- Create a list of post using the array defined earlier -->
 
 <ul>
-  {% for post in site.categories['reinforcement learning'] %}
+  {% for post in sortedPosts %}
     {% if post.url %}
         <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endif %}
   {% endfor %}
 </ul>
-
-
 

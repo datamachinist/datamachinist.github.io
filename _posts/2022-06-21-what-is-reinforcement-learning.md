@@ -7,7 +7,7 @@ category:
 
 
 ![openai](/assets/images/datamachinist/openai.jpeg)
-*[Source](https://thenewstack.io/openai-algorithm-allows-ai-to-learn-from-its-mistakes/)*
+<sub><sup>*[Source](https://thenewstack.io/openai-algorithm-allows-ai-to-learn-from-its-mistakes/)*</sup></sub>
 
 Reinforcement learning (RL) is a branch of machine learning that has gained a lot of momentum in the recent years. In this series, we will explain what is reinforcement learning and we will explore some implementation of the different types of RL techniques.
 
@@ -17,7 +17,7 @@ There are 3 main types of machine learning techniques: supervised learning, unsu
 
 
 ![machine learning types](/assets/images/datamachinist/machine_learning_type.png)
-*[Source](https://medium.com/deep-math-machine-learning-ai/different-types-of-machine-learning-and-their-types-34760b9128a2)*
+<sub><sup>*[Source](https://medium.com/deep-math-machine-learning-ai/different-types-of-machine-learning-and-their-types-34760b9128a2)*</sup></sub>
 
 More formally, Reinforcement Learning (RL) is defined as "a type of machine learning technique that enables an agent to learn in an interactive environment by trial and error using feedback from its own actions and experiences."[[1](https://www.kdnuggets.com/2018/03/5-things-reinforcement-learning.html)]. The agent learns to make an informed decision by interrogating an unknown environment. The agent improves its decision-making abilities over time by maximizing a long-term reward through trial-and-error.
 
@@ -31,7 +31,7 @@ Here are some key definitions:
 
 
 ![rl loop](/assets/images/datamachinist/reinforcement-learning-fig1-700.jpg)
-*[Source](https://www.kdnuggets.com/2018/03/5-things-reinforcement-learning.html)*
+<sub><sup>*[Source](https://www.kdnuggets.com/2018/03/5-things-reinforcement-learning.html)*</sup></sub>
 
 ## Model free vs model based
 
@@ -43,14 +43,14 @@ The agent is given a model of the environment and uses this model to find the op
 
 
 ![model free model based](/assets/images/datamachinist/model_free_model_based.png)
-*[Source](http://incompleteideas.net/book/the-book-2nd.html)*
+<sub><sup>*[Source](http://incompleteideas.net/book/the-book-2nd.html)*</sup></sub>
 
 **Pros and cons**
 Usually pure model-based methods are used in deterministic environments, such as board games with strict rules. They require less samples so they also find nice applications in robotics. On the other hand, model-free methods are usually easier to train as it's hard to build good models of complex environments with rich observations.
 
 
 ![pros cons](/assets/images/datamachinist/model_free_model_based2.png)
-*[Source](https://jonathan-hui.medium.com/rl-model-based-reinforcement-learning-3c2b6f0aa323)*
+<sub><sup>*[Source](https://jonathan-hui.medium.com/rl-model-based-reinforcement-learning-3c2b6f0aa323)*</sup></sub>
 
 ## Value-based vs policy-based vs actor critic
 

@@ -61,13 +61,13 @@ So far, we let the agent **explore** the environment by taking random actions i.
 
 
 ![decay](/assets/images/datamachinist/exploration-expoloitation.png)
-*[Source](https://www.freecodecamp.org/news/diving-deeper-into-reinforcement-learning-with-q-learning-c18d0db58efe/)*
+<sub><sup>*[Source](https://www.freecodecamp.org/news/diving-deeper-into-reinforcement-learning-with-q-learning-c18d0db58efe/)*</sup></sub>
 
 
 This process is repeated iteratively as follows.
 
 ![Qlearning_process](/assets/images/datamachinist/Qlearning_process.png)
-*[Source](https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-learning-14ac0b4493cc/)*
+<sub><sup>*[Source](https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-learning-14ac0b4493cc/)*</sup></sub>
 
 Eventually, the Q-values should converge to a steady values. The training is completed when the squared loss between the predicted and actual Q value is minimal.
 
