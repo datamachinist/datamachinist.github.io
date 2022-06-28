@@ -23,16 +23,18 @@ main:
   - title: "Reinforcement Learning"
     url: /reinforcement_learning/
   - title: "Data Science Dictionary"
-    url: /about/
+    url: /data_science_dictionary/
   - title: "Deep Learning"
-    url: /year-archive/
+    url: /deep_learning/
   - title: "Optimisation"
-    url: /collection-archive/
+    url: /optimisation/
   - title: "Supervised Learning"
-    url: /terms/
+    url: /supervised_learning/
   - title: "Cheat Sheets"
-    url: /terms/
+    url: /cheat_sheets/
   - title: "Anomaly Detection"
+    url: /anomaly_detection_for_time_series/
+  - title: "Privacy policy"
     url: /terms/
 
 
