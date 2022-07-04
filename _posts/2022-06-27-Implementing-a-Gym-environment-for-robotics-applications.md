@@ -39,7 +39,7 @@ Environment name:
 - balancebot-v0
 - balancebot-noise-v0
 
-<img src="/assets/images/datamachinist/custom_envs/balancebot.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/balancebot.gif"/>
 
 ### Particle
 
@@ -48,7 +48,7 @@ A Goal Env (for testing Hindsight Experience Replay) where a red particle must r
 Environment name: 
 - particle-v0
 
-<img src="/assets/images/datamachinist/custom_envs/particle.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/particle.gif"/>
 
 ### Reacher2D (Pybullet)
 
@@ -69,7 +69,7 @@ Environment name:
 - Reacher6Dof-v1  (goalEnv)
 
 
-<img src="/assets/images/datamachinist/custom_envs/reacher2D.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/reacher2D.gif"/>
 
 ### WidowX arm (Pybullet)
 
@@ -89,7 +89,7 @@ Environment name:
 - widowx_reacher-v13  (env for the physical arm only + no start_rospy method + goal environment + random goal)
 
 
-<img src="/assets/images/datamachinist/custom_envs/widowx.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/widowx.gif"/>
 
 ### Jaco arm (Pybullet)
 
@@ -98,7 +98,7 @@ The Jaco arm in Pybullet. The goal is to bring the tip as close as possible to t
 Environment name: 
 - ReachingJaco-v1
 
-<img src="/assets/images/datamachinist/custom_envs/jaco.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/jaco.gif"/>
 
 
 ### Cartpole3D (ROS / Gazebo)
@@ -108,7 +108,7 @@ The Cartpole in ROS / Gazebo. The goal is to balance the pole upwards as long as
 Environment name: 
 - CartPoleStayUp-v0
 
-<img src="/assets/images/datamachinist/custom_envs/cartpole3d.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/cartpole3d.gif"/>
 
 
 ### Turtlebot2 Maze (ROS / Gazebo)
@@ -118,7 +118,7 @@ The Turtlebot2 robot in ROS / Gazebo. The goal is to avoid touching the walls. A
 Environment name: 
 - MyTurtleBot2Maze-v0
 
-<img src="/assets/images/datamachinist/custom_envs/turtlebot2_maze.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/turtlebot2_maze.gif"/>
 
 
 ### Turtlebot2 Wall (ROS / Gazebo)
@@ -128,7 +128,7 @@ The Turtlebot2 robot in ROS / Gazebo. The goal is to avoid touching the wall. Ad
 Environment name: 
 - MyTurtleBot2Wall-v0
 
-<img src="/assets/images/datamachinist/custom_envs/turtlebot2_wall.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/turtlebot2_wall.gif"/>
 
 
 ### Jaco arm (ROS / Gazebo)
@@ -141,9 +141,9 @@ Environment name:
 - JacoReachGazebo-v2 (Jaco arm in Gazebo with actionlib + fixed target + only 1 joint moving + angle change)
 - JacoReachReal-v0 (Physical Jaco arm env)
 
-<img src="/assets/images/datamachinist/custom_envs/jaco_ros.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/jaco_ros.gif"/>
 
-<img src="/assets/images/datamachinist/custom_envs/jaco_ros_simple.gif"/>
+<img src="{{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/custom_envs/jaco_ros_simple.gif"/>
 
 
 ### Minimal Working Example: GymEnv and GoalEnv

@@ -21,7 +21,7 @@ The simplest form of ANN is called **Feedforward Neural Network (FNN)**, where a
 The architecture of the SLP is as follows,
 
 
-![machine learning types](/assets/images/datamachinist/SLP.png)
+![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/SLP.png)
 <sub><sup>*architecture of a Single-Layer Perceptron*</sup></sub>
 
 
@@ -30,7 +30,7 @@ The SLP maps an **input** $$x$$ (there is only one feature here) to a predicted 
 $$\hat{y}$$. is the output of an **activation function** such as the **Sigmoid** function. This function squashes a real number into the [0, 1] interval. If the real number is negative, the output is close to 0 and if it is positive, the output is close to 1.
 
 
-![machine learning types](/assets/images/datamachinist/sigmoid_function.png)
+![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/sigmoid_function.png)
 <sub><sup>*The Sigmoid function -- [Source](https://en.wikipedia.org/wiki/Sigmoid_function)*</sup></sub>
 
 $$

@@ -5,7 +5,9 @@ category:
   - reinforcement learning
 ---
 
-In a previous [post](/_posts/2022-06-24-Q-learning-for-discrete-state-problems.md), we used Q-learning to solve simple grid-world problems such as a maze or the Taxi-v2 environment. For these type of problems, it was possible to use a Q-table composed of a finite number of rows corresponding to each possible state. However in most real-life problems, the number of possible states is infinite so it is virtually impossible to define a Q-table as in the previous post. A workaround consists in discretising the state space into buckets and use these buckets as an entry in the Q-table. I will illustrate this concept using the Cart-Pole environment from OpenAI Gym.
+
+
+In a previous [post]({% post_url 2022-06-24-Q-learning-for-discrete-state-problems %}), we used Q-learning to solve simple grid-world problems such as a maze or the Taxi-v2 environment. For these type of problems, it was possible to use a Q-table composed of a finite number of rows corresponding to each possible state. However in most real-life problems, the number of possible states is infinite so it is virtually impossible to define a Q-table as in the previous post. A workaround consists in discretising the state space into buckets and use these buckets as an entry in the Q-table. I will illustrate this concept using the Cart-Pole environment from OpenAI Gym.
 
 ## Cart-Pole environment
 
@@ -180,7 +182,7 @@ for t in range(n_steps):
 env.close()
 ```
 
-![continuous Q learning results](/assets/images/datamachinist/Q_learning_CART.png)
+![continuous Q learning results]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Q_learning_CART.png)
 
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=-5m90K94TWo&" title="continuous Q learning video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -190,8 +192,6 @@ The full code can be found [here](https://github.com/PierreExeter/Q-learning-car
 
 It is possible to discretise both the state and action space. For example, the Pendulum-v0 environment is characterised by continuous state and action spaces.
 
-
-![continuous Q learning pendulum](/assets/images/datamachinist/Q_learning_pendulum.png)
 
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=qVr0fDfC64A&f" title="pendulum env" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

@@ -11,7 +11,7 @@ Here is a list of the most common reinforcement learning algorithms grouped by c
 
 ## 1. Model-free RL algorithms
 
-![model free](/assets/images/datamachinist/model_free.drawio.png)
+![model free]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/model_free.drawio.png)
 
 ### 1.1. value-based
 
@@ -63,7 +63,7 @@ Here is a list of the most common reinforcement learning algorithms grouped by c
 
 ## 2. Model-based RL algorithms
 
-![model based](/assets/images/datamachinist/model_based.drawio.png)
+![model based]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/model_based.drawio.png)
 
 
 ### 2.1. Dyna-Style Algorithms / Model-based data generation
@@ -115,7 +115,7 @@ Here is a list of the most common reinforcement learning algorithms grouped by c
 ## 3. Other RL algorithms
 
 
-![other RL algo](/assets/images/datamachinist/other_RL.drawio.png)
+![other RL algo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/other_RL.drawio.png)
 
 
 ### 3.1. General agents

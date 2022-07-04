@@ -15,7 +15,7 @@ In the [previous article]({% post_url 2022-06-29-the-single-layer-perceptron %})
 
 We add a hidden layer of neurons between the output and the input layer, as follows:
 
-![machine learning types](/assets/images/datamachinist/MLP.png)
+![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/MLP.png)
 <sub><sup>*Architecture of a Multi-Layer Perceptron*</sup></sub>
 
 The layer number is shown into brackets in superscript and the neuron number in each layer is shown in subscript.

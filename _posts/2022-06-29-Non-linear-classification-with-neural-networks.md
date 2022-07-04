@@ -17,13 +17,13 @@ We have seen in a [previous article]({% post_url 2022-06-29-Implement-a-neural-n
 We consider a MLP to perform binary classification on a dataset of 500 observations with a **non-linear decision boundary**. Each observations has 2 features (X1 and X2). The red dots have the class 0 and the blue dots have the class 1.
 
 
-![moons_dataset](/assets/images/datamachinist/moons.png)
+![moons_dataset]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/moons.png)
 <sub><sup>*The moon dataset from the Sklearn library*</sup></sub>
 
 Since we have 2 features, we need 2 input neurons. Since there are 2 classes to predict, we can use 1 output neuron (which can take the value 0 or 1). We choose to use 4 neurons in the hidden layer. The architecture of the network is as follows.
 
 
-![mlp](/assets/images/datamachinist/mlp.png)
+![mlp]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/mlp.png)
 <sub><sup>*Architecture of the neural network*</sup></sub>
 
 Note: we will not add the bias term for simplicity reasons.
@@ -165,17 +165,17 @@ plt.savefig('test_vs_train_mlp.png')
 plt.show()
 ```
 
-![MSE vs epoch](/assets/images/datamachinist/J_vs_epoch_mlp.png)
+![MSE vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/J_vs_epoch_mlp.png)
 <sub><sup>*MSE vs epoch*</sup></sub>
 
 The training error (MSE) is decreasing with the number of iterations, which is a good sign.
 
-![Weights_vs_epoch](/assets/images/datamachinist/Weights_vs_epoch_mlp.png)
+![Weights_vs_epoch]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Weights_vs_epoch_mlp.png)
 <sub><sup>*Weights vs epoch*</sup></sub>
 
 Finally, we can generate unseen data point to test the neural network. The new (test) data points are shown as crosses whereas the training data points are shown as circles.
 
-![Weights_vs_epoch](/assets/images/datamachinist/test_vs_train_mlp.png)
+![Weights_vs_epoch]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/test_vs_train_mlp.png)
 <sub><sup>*Visualisation of the classification*</sup></sub>
 
 

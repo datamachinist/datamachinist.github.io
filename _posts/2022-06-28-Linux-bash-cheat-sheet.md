@@ -5,6 +5,9 @@ category:
   - cheat sheet
 ---
 
+![linux-logo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/linux_logo.png)
+
+
 ## Some definitions
 
 - **Linux** is an open-source operating system. It comes under different "flavours" or **distributions** such as Ubuntu, Arch Linux, Fedora, etc... 
@@ -12,7 +15,7 @@ category:
 
 ## Cheat sheet
 
-You can download a printable Linux command line cheat sheet [here](/assets/downloads/Linux-bash-cheat-sheet.pdf) from [Cheatography](https://cheatography.com/davechild/cheat-sheets/linux-command-line/).
+You can download a printable Linux command line cheat sheet [here]({{ site.url }}{{ site.baseurl }}/assets/downloads/Linux-bash-cheat-sheet.pdf) from [Cheatography](https://cheatography.com/davechild/cheat-sheets/linux-command-line/).
 
 ## 1. Find files
 
@@ -394,7 +397,7 @@ squeue
 ```   
 
 
-## 9. Resolve merging conflicts with Git</h3>
+## 9. Resolve merging conflicts with Git
 
 ```bash  
 git mergetool --tool=emerge

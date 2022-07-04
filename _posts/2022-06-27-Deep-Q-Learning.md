@@ -9,10 +9,10 @@ In previous posts, we have seen how Q learning works. However, we have also seen
 
 ## DQN architecture
 
-Deep Q learning basically consists in replacing the Q table by a deep neural network (hence the name Deep Q Network or DQN). There is some difference however. Q table was associating a single Q value to each state-action pair. Instead a DQN only receives the current state as input and it outputs the Q values for each possible actions. This is essentially a regression problem. We only need to find the maximum Q value in order to find the best action. This is illustrated below.
+Deep Q learning basically consists in replacing the Q table by a deep neural network. There are some notable difference with standard Q learning however. In Q learning, the Q table was referencing a single Q value to each state-action pair. Instead a DQN only receives the current state as input and it outputs the Q values for each possible actions. This is essentially a regression problem. We only need to find the maximum Q value in order to find the best action. This is illustrated below.
 
 
-![Q learning vs DQN](/assets/images/datamachinist/Q-learning_vs_DQN.png)
+![Q learning vs DQN]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Q-learning_vs_DQN.png)
 <sub><sup>*[Source](https://www.analyticsvidhya.com/blog/2019/04/introduction-deep-q-learning-python/)*</sup></sub>
 
 ## A bit of theory
@@ -20,7 +20,7 @@ Deep Q learning basically consists in replacing the Q table by a deep neural net
 The idea behind DQN was [published](https://arxiv.org/abs/1312.5602) in 2013 by DeepMind. The pseudo-code of their DQN algorithm is shown below. Let's have a look at it into more details.
 
 
-![Q learning vs DQN](/assets/images/datamachinist/DQN_algo.png)
+![Q learning vs DQN]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/DQN_algo.png)
 <sub><sup>*[Source](https://arxiv.org/abs/1312.5602)*</sup></sub>
 
 ### Experience replay
@@ -52,7 +52,7 @@ print(y_target)
 We then update the Q value corresponding to the action taken in the past experience. For example, being in the current state, if the agent performed the action 'left (0)', we will update the first Q value and it it performed the action 'right (1)', we will update the second Q value. This Q value is updated either by the immediate reward if the episode is done, or by this value otherwise (Bellman equation):
 
 
-![bellman](/assets/images/datamachinist/Selection_015.png)
+![bellman]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Selection_015.png)
 
 Once we have updated all the Q values in the minibatch, we can build our training dataset with X being the states in the minibatch and y being the associated Q value vector. We can then use this dataset to fit the weights of the neural network.
 
@@ -73,16 +73,16 @@ The code can be found [here](https://github.com/PierreExeter/DQN_cartpole).
 
 ## Target network
 
-The problem with experience replay is that both the input and the target are constantly changing during training, making the training unstable. As shown below, the target values for Q depends on Q itself, we are chasing a non-stationary target.
+The problem with experience replay is that both the input and the target are constantly changing during training, making the training unstable. As shown below, the target values for Q depends on Q itself, we are chasing a non-stationary target.
 
 
-![target network](/assets/images/datamachinist/target_network.png)
+![target network]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/target_network.png)
 <sub><sup>*[Source](https://www.analyticsvidhya.com/blog/2019/04/introduction-deep-q-learning-python/)*</sup></sub>
 
 The solution consists in creating two deep networks with the same architecture: one with constant weights - the target network and one with variable parameters - the prediction network. The target network is used to estimate the target Q values and the prediction network is used to fit the network's weight that minimise the loss. Every X steps (a large number eg. 100,000), these weights are synchronised with those of the target network to ensure stability of training. The objective is to fix the target Q values temporarily so we don't have to chase a moving target.
 
 
-![target network](/assets/images/datamachinist/target_network2.png)
+![target network]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/target_network2.png)
 <sub><sup>*[Source](https://www.analyticsvidhya.com/blog/2019/04/introduction-deep-q-learning-python/)*</sup></sub>
 
 ## Don't reinvent the wheel: use RL libraries

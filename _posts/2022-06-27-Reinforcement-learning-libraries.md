@@ -5,7 +5,7 @@ category:
   - reinforcement learning
 ---
 
-In previous posts, we sometimes implemeted manually some RL algorithms to explain how they work. However in practice, we will use some optimised libraries that implement common RL algorithms instead. In this post, we will compare some of these libraries. A list of such libraries can be found [here](https://github.com/godmoves/reinforcement_learning_collections).
+In previous posts, we sometimes implemented manually some RL algorithms to explain how they work. However in practice, we will use some optimised libraries that implement common RL algorithms instead. In this post, we will compare some of these libraries. A list of such libraries can be found [here](https://github.com/godmoves/reinforcement_learning_collections).
 
 
 

@@ -12,12 +12,12 @@ As we have seen before, RL agents must interact with an environment, either by s
 
 A wide range of toy benchmark environments are also implemented and are often used for comparing the performance of different RL algorithms. Example of such virtual environments include the cart-pole, mountain-car or inverted pendulum problems. These environments are great for learning, but eventually you will want to create a virtual environment to solve your own problem, be it for stock trading, robotics or self driving vehicles.
 
-Gym integrates very nicely with physics engines, which allows researchers to create custom virtual environments for robotics tasks. One of the most used physics engine is [MuJoCo](https://mujoco.org/) (**Mu**lti-**Jo**int dynamics with **Co**ntact). However, it requires a paid license, which can be an issue for some projects. That's why in this post, I will focus on [Pybullet](https://pybullet.org/wordpress/), which is free and open source. (MuJoCo has a faster performance though, according to one of their own [paper](https://homes.cs.washington.edu/~todorov/papers/ErezICRA15.pdf)...).
+Gym integrates very nicely with physics engines, which allows researchers to create custom virtual environments for robotics tasks. One of the most used physics engine is [MuJoCo](https://mujoco.org/) (**Mu**lti-**Jo**int dynamics with **Co**ntact). However, it requires a paid license, which can be an issue for some projects. That's why in this post, I will focus on [Pybullet](https://pybullet.org/wordpress/), which is free and open source. (MuJoCo has a faster performance though, according to one of their own [paper](https://homes.cs.washington.edu/~todorov/papers/ErezICRA15.pdf)...).
 
 This is the classical pipeline for training RL robotics agents.
 
 
-![RL pipeline](/assets/images/datamachinist/RL_pipeline.png)
+![RL pipeline]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/RL_pipeline.png)
 
 In this tutorial series, you will learn how to create custom virtual environments with a particular focus on robotics applications.
 

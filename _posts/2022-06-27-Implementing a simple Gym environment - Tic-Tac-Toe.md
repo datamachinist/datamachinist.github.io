@@ -12,7 +12,7 @@ In the previous article, we have created, installed and registered a minimalist 
 Let's remind ourselves the rules of the game. The game is played on a grid that's 3 squares by 3 squares. There are 2 players, one with X and the other with O. Players take turns putting their marks in empty squares. The first player to get 3 of her marks in a row (up, down, across, or diagonally) is the winner. A reward of +100 is given to the player wining the game.
 
 
-![tic-tac-toe](/assets/images/datamachinist/Tic_tac_toe.png.png)
+![tic-tac-toe]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Tic_tac_toe.png)
 <sub><sup>*The tic-tac-toe game*</sup></sub>
 
 Here is an example of implementation of the 4 methods.
