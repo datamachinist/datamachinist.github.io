@@ -1,6 +1,7 @@
 ---
 title:  "Docker cheat sheet"
 excerpt: "Some useful commands and shortcuts for Docker"
+toc: true
 category:
   - cheat sheet
 ---

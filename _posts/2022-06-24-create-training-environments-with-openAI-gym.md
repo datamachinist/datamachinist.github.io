@@ -1,6 +1,7 @@
 ---
 title:  "Part 4 : Create training environments with OpenAI Gym"
 excerpt: "Learning to create virtual environments for training RL agents with the OpenAI Gym library"
+toc: true
 category:
   - reinforcement learning
 ---

@@ -1,6 +1,7 @@
 ---
 title:  "Part 8.1 : Registering a custom Gym environment"
 excerpt: "Learn to create and register a minimal custom Gym environment."
+toc: true
 category:
   - reinforcement learning
   - custom Gym environment

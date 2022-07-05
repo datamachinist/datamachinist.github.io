@@ -1,6 +1,7 @@
 ---
 title:  "Part 7 : Deep Q Learning"
 excerpt: "Understand how DQN works"
+toc: true
 category:
   - reinforcement learning
 ---

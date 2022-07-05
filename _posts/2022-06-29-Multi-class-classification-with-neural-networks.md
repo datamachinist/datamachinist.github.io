@@ -1,6 +1,7 @@
 ---
 title:  "Part 5 : Multi-class classification with neural networks"
 excerpt: "Learn to solve a multi-class classification problem with neural networks in Python."
+toc: true
 category:
   - deep learning
 ---

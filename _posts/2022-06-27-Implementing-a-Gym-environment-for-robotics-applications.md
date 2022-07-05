@@ -1,6 +1,7 @@
 ---
 title:  "Part 8.4 : Implementing a Gym environment for robotics applications"
 excerpt: "Learn to implement a custom Gym environment for robotics applications with Pybullet."
+toc: true
 category:
   - reinforcement learning
   - custom Gym environment

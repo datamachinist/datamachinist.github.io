@@ -1,6 +1,7 @@
 ---
 title:  "Part 2 : Reinforcement learning algorithms taxonomy"
 excerpt: "Reinforcement learning algorithms listed by category"
+toc: true
 category:
   - reinforcement learning
 ---

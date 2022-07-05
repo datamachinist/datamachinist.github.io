@@ -1,6 +1,7 @@
 ---
 title:  "Part 8 : Implementing custom virtual environments"
 excerpt: "Learn to implement your own training environments with the Gym library."
+toc: true
 category:
   - reinforcement learning
 ---

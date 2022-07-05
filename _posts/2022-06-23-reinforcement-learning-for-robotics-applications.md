@@ -1,6 +1,7 @@
 ---
 title:  "Part 3 : Reinforcement learning for robotics applications"
 excerpt: "Some interesting research projects that apply reinforcement learning to robotics"
+toc: true
 category:
   - reinforcement learning
 ---

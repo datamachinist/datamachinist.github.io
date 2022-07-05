@@ -1,6 +1,7 @@
 ---
 title:  "Part 9 : Reinforcement learning libraries"
 excerpt: "Let's compare some reinforcement learning libraries"
+toc: true
 category:
   - reinforcement learning
 ---

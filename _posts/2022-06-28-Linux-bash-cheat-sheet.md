@@ -1,6 +1,7 @@
 ---
 title:  "Linux bash cheat sheet"
 excerpt: "Some useful commands and shortcuts for the Linux Bash command line interpreter"
+toc: true
 category:
   - cheat sheet
 ---

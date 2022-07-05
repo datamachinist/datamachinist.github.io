@@ -1,6 +1,7 @@
 ---
 title:  "Part 1 : What is Reinforcement Learning ?"
 excerpt: "An introduction to reinforcement learning"
+toc: true
 category:
   - reinforcement learning
 ---

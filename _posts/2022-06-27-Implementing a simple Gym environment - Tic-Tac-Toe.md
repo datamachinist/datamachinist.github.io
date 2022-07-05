@@ -1,6 +1,7 @@
 ---
 title:  "Part 8.2 : Implementing a simple Gym environment - Tic-Tac-Toe"
 excerpt: "Implement the 4 methods for the tic-tac-toe Gym environment."
+toc: true
 category:
   - reinforcement learning
   - custom Gym environment

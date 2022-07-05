@@ -1,6 +1,7 @@
 ---
 title:  "Part 3 : Implement a neural network in Python"
 excerpt: "Implement a simple artificial neural network from scratch using only the Numpy library."
+toc: true
 category:
   - deep learning
 ---

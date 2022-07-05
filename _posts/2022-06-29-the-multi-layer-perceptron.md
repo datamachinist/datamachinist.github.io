@@ -1,6 +1,7 @@
 ---
 title:  "Part 2 : The multi-layer perceptron"
 excerpt: "We explain the concept behind the backpropagation algorithm with the multi-layer perceptron"
+toc: true
 category:
   - deep learning
 ---

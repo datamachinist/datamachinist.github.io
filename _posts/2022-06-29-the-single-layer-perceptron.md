@@ -1,6 +1,7 @@
 ---
 title:  "Part 1 : The single-layer perceptron"
 excerpt: "In this post, we will explain how simple artificial neural networks works"
+toc: true
 category:
   - deep learning
 ---

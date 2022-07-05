@@ -1,6 +1,7 @@
 ---
 title:  "Part 4 : Non-linear classification with neural networks"
 excerpt: "Let's see how to deal with non-linear classification problems with artificial neural networks."
+toc: true
 category:
   - deep learning
 ---

@@ -1,6 +1,7 @@
 ---
 title:  "Part 6 : Q learning for continuous state problems"
 excerpt: "Adapting Q learning to solve continuous state problems."
+toc: true
 category:
   - reinforcement learning
 ---

@@ -1,6 +1,7 @@
 ---
 title:  "Part 8.3 - Getting started with Pybullet"
 excerpt: "An introduction to Pybullet, an open-source physics engine simulator for robotics."
+toc: true
 category:
   - reinforcement learning
   - custom Gym environment

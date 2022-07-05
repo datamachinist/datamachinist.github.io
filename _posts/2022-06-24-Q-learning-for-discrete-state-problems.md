@@ -1,6 +1,7 @@
 ---
 title:  "Part 5 : Q learning for discrete state problems"
 excerpt: "Q learning is a simple and efficient way to solve discrete state problems."
+toc: true
 category:
   - reinforcement learning
 ---

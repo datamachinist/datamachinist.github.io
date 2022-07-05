@@ -1,6 +1,7 @@
 ---
 title:  "Conda cheat sheet"
 excerpt: "Some useful commands and shortcuts for Conda"
+toc: true
 category:
   - cheat sheet
 ---
