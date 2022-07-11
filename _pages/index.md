@@ -4,7 +4,7 @@ permalink: /
 hidden: true
 header:
   overlay_color: "#5e616c"
-  overlay_image: /assets/images/mm-home-page-feature.jpg
+  overlay_image: /assets/images/datamachinist/cover_datasparked2.jpg
 excerpt: >
   A blog on applied machine learning and data science.
 feature_row:
