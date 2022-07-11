@@ -74,21 +74,22 @@ yandex_site_verification :
 baidu_site_verification  :
 
 # # Social Sharing
-# twitter:
-#   username               : &twitter "mmistakes"
-# facebook:
-#   username               : &facebook "michaelrose"
+twitter:
+  username               : &twitter "DataSparked"
+facebook:
+  username               : &facebook "DataSparked"
 #   app_id                 :
 #   publisher              :
 # og_image                 : "/assets/images/site-logo.png" # Open Graph/Twitter default site image
-# # For specifying social profiles, used in _includes/seo.html
-# # - https://developers.google.com/structured-data/customize/social-profiles
-# social:
-#   type                   : # Person or Organization (defaults to Person)
-#   name                   : # If the user or organization name differs from the site's name
-#   links: # An array of links to social media profiles
-#     - "https://twitter.com/mmistakes"
-#     - "https://www.facebook.com/michaelrose"
+# For specifying social profiles, used in _includes/seo.html
+# - https://developers.google.com/structured-data/customize/social-profiles
+social:
+  type                   : "Organization" # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
+    - "https://twitter.com/DataSparked"
+    - "https://www.facebook.com/DataSparked"
+    - "https://www.linkedin.com/company/datasparked/"
 
 # Analytics
 analytics:
@@ -114,7 +115,6 @@ author:
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/pierreaumjaud/"
 
-
 # Site Footer
 footer:
   links:
@@ -123,7 +123,19 @@ footer:
       url: "https://github.com/PierreExeter"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/pierreaumjaud/"
+      url: "https://www.linkedin.com/company/datasparked/"
+    - label: "Facebook"
+      icon: "fab fa-fw fa-facebook"
+      url: "https://www.facebook.com/DataSparked"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/channel/UCpHqOm7Th3YRscz8wQNLVFw"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://twitter.com/DataSparked"
+    - label: "Pinterest"
+      icon: "fab fa-fw fa-pinterest"
+      url: "https://www.pinterest.fr/datasparked/"
 
 
 # Reading Files
