@@ -1,6 +1,6 @@
-# Datamachinist
+# Data Sparked
 
-[https://datamachinist.github.io/](https://datamachinist.github.io/)
+[https://www.datasparked.com/](https://www.datasparked.com/)
 
 A blog on applied machine learning and data science
 
