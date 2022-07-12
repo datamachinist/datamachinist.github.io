@@ -18,7 +18,7 @@ Field of study that gives computers the ability to learn without being explicitl
     - Reinforcement learning 
 
 - **Supervised learning**
-It's a type of machine learning where the computer make predictions or take decisions based on labelled training set of observations. It can be used for classification or regression problems.
+It's a type of machine learning where the computer make predictions or take decisions based on labelled training set of observations. It uses algorithms generalise from historical data in order to make predictions on new unseen data. It can be used for classification or regression problems.
 
 - **Unsupervised learning**
 It's a type of machine learning used to draw inference from data sets consisting of input data without labeled output. It is typically used to group similar observations into groups (cluster analysis).
