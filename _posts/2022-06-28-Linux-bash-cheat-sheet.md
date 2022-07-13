@@ -160,16 +160,24 @@ history
  
 
 ```bash
-scp /file/to/send username@remote:/where/to/put<br>rsync /file/to/send username@remote:/where/to/put
-```   
+scp /file/to/send username@remote:/where/to/put
+# OR
+rsync -avzh /file/to/send username@remote:/where/to/put
+```  
+where the rsync options are: 
 
+- -a : archive mode, which preserves permissions, ownership, and modification times
+- -v : enables verbose 
+- -z : enables compression during transfer
+- -h : outputs numbers in human-readable format 
     
 - When logged in locally, from remote to local 
  
 
 ```bash
 scp username@remote:/file/to/send /where/to/put
-rsync username@remote:/file/to/send /where/to/put
+# OR
+rsync -avzh username@remote:/file/to/send /where/to/put
 ```   
 
 
@@ -177,7 +185,8 @@ rsync username@remote:/file/to/send /where/to/put
  
 
 ```bash  
-sftp username@remote<br>get -r "remote/dir/path" "local/dir/path"
+sftp username@remote
+get -r "remote/dir/path" "local/dir/path"
 ```   
 
     
@@ -185,10 +194,11 @@ sftp username@remote<br>get -r "remote/dir/path" "local/dir/path"
  
 
 ```bash
-sftp username@remote<br>put -r "local/dir/path" "remote/dir/path"
+sftp username@remote
+put -r "local/dir/path" "remote/dir/path"
 ```   
 
-(note: in Ubuntu, you may encounter this error: "Couldn't canonicalise: No such file or directory".<br>solution: create a directory on the remote first using mkdir) 
+(note: in Ubuntu, you may encounter this error: "Couldn't canonicalise: No such file or directory". Solution: create a directory on the remote first using mkdir) 
  
 
     
