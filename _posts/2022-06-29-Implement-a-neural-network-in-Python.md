@@ -15,7 +15,7 @@ We propose to implement a simple Artificial Neural Network (ANN) from scratch us
 
 We will look at implementing an ANN with 3 input neurons. This means that our problem has 3 features and 1 binary output variable. The architecture is shown below.
 
-![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/simple_NN.png)
+![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/simple_NN.png)
 <sub><sup>*Architecture of the neural network*</sup></sub>
 
 $$w^{(L)}_{ij}$$ is the weight between the $$i^{th}$$ neuron in layer $$L-1$$ and the $$j^{th}$$ neuron in layer $$L$$. 
@@ -41,7 +41,7 @@ $$
 The MSE cost function is defined as follows,
 
 $$
-J = \frac{1}{m}\sum_{i=1}^{m}(a^{(1)}_1i-y_i)^2
+J = \frac{1}{m}\sum_{i=1}^{m}(a^{(1)}_{1i}-y_i)^2
 $$
 
 Let's apply Gradient Descent to the first weight $$w^{(0)}_{11}$$.
@@ -198,17 +198,17 @@ print('A person who is not smoking, obese and does not exercise is classified as
 In example 1, a person who is smoking, not obese and does not exercise is classified as not diabetic. In example 2, a person who is not smoking, obese and does not exercise is classified as diabetic.
 
 
-![MSE vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/J_vs_epoch.png)
+![MSE vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/J_vs_epoch.png)
 <sub><sup>*MSE vs epoch*</sup></sub>
 
 The training error (MSE) keeps decreasing with the number of iterations, which is a good sign. 
 
-![Weights_vs_epoch]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Weights_vs_epoch.png)
+![Weights_vs_epoch]({{ site.url }}{{ site.baseurl }}/assets/images/Weights_vs_epoch.png)
 <sub><sup>*Weights vs epoch*</sup></sub>
 
 We can also notice that the weight $$w_{21}$$ becomes predominant after many iterations. This is because the 2nd feature (obesity) is very highly correlated with the output variable (diabetic).
 
-![Bias vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Bias_vs_epoch.png)
+![Bias vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/Bias_vs_epoch.png)
 <sub><sup>*Bias vs epoch*</sup></sub>
 
 ## Conclusion

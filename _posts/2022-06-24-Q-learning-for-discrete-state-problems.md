@@ -23,12 +23,12 @@ In its most simple form, Q learning uses a **Q-table** that store the Q-values o
 
 Let's consider the following problem. The agent (in green) is placed in a 4x4 grid-world environment or maze. Its initial position is in the top-left corner and the goal is to escape the maze by moving to the bottom left corner. The agent has no preliminary knowledge of the environment or the goal to achieve. At each time step, it can perform 4 possible actions: up, down, left or right (unless it is on the edge of the maze). After performing an action, it receives a positive or a negative reward indicated by a score in each cell. There are 16 possible states, shown by a red number. The Q-table is composed of 16 rows (one for each state) and 4 columns (one for each action). For the sake of simplicity, we will initialise the Q-table with zeros, although in practice you'll want to initialise it with random numbers.
 
-![Qlearning0]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/q_learning/Q00.png)
+![Qlearning0]({{ site.url }}{{ site.baseurl }}/assets/images/q_learning/Q00.png)
 
 The agent takes an initial random action, for example 'move right'. 
 
 
-![Qlearning1]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/q_learning/Q01.png)
+![Qlearning1]({{ site.url }}{{ site.baseurl }}/assets/images/q_learning/Q01.png)
 
 The Q-value associated with being in the initial state (state 1) and moving right is updated using the Bellman equation. In its simplest form, the Bellman equation is written as follows,
 
@@ -55,7 +55,7 @@ $$
 
 In our maze problem, if we assume a discount factor equal to 1, the Q value of being in state 0 and performing action 'right' is equal to -1. We can repeat this process by letting the agent take another random action, for example 'down'. The Q-table is updated as follows.
 
-![Qlearning2]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/q_learning/Q02.png)
+![Qlearning2]({{ site.url }}{{ site.baseurl }}/assets/images/q_learning/Q02.png)
 
 Here is a short video to illustrate the whole process.
 
@@ -66,13 +66,13 @@ Here is a short video to illustrate the whole process.
 So far, we let the agent **explore** the environment by taking random actions i.e. it is following a **random policy**. However, after some time exploring, the agent should capitalise on its past experience by selecting the action that is believed to yield the highest expected reward. This is referred to as **exploitation** i.e. the agent follows a **greedy policy**. In order to learn efficiently, there is a trade-off decision to be made between exploration and exploitation. This is implemented in practice by a so-called **$$\epsilon$$-greedy** policy. At each time step, a number $$\epsilon$$ is assigned a value between 0 and 1. Another random number is also selected. If that number is larger than $$\epsilon$$, a greedy-action is selected and if it is lower, a random action is chosen. Generally, $$\epsilon$$ is decreased from 1 to 0 at each time step during the episode. The decay can be linear as shown below but not necessarily.
 
 
-![decay]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/exploration-expoloitation.png)
+![decay]({{ site.url }}{{ site.baseurl }}/assets/images/exploration-expoloitation.png)
 <sub><sup>*[Source](https://www.freecodecamp.org/news/diving-deeper-into-reinforcement-learning-with-q-learning-c18d0db58efe/)*</sup></sub>
 
 
 This process is repeated iteratively as follows.
 
-![Qlearning_process]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Qlearning_process.png)
+![Qlearning_process]({{ site.url }}{{ site.baseurl }}/assets/images/Qlearning_process.png)
 <sub><sup>*[Source](https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-learning-14ac0b4493cc/)*</sup></sub>
 
 Eventually, the Q-values should converge to a steady values. The training is completed when the squared loss between the predicted and actual Q value is minimal.
@@ -190,7 +190,7 @@ print ("Training score over time: " + str(sum(training_rewards)/train_episodes))
 The cumulative reward vs the number of episode is shown below.
 
 
-![bellman2]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Q-learning-1024x768.png)
+![bellman2]({{ site.url }}{{ site.baseurl }}/assets/images/Q-learning-1024x768.png)
 
 Here is the trained taxi agent in action.
 

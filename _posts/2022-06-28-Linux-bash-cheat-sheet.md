@@ -6,7 +6,7 @@ category:
   - cheat sheet
 ---
 
-![linux-logo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/linux_logo.png)
+![linux-logo]({{ site.url }}{{ site.baseurl }}/assets/images/linux_logo.png)
 
 
 ## Some definitions

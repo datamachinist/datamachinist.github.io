@@ -16,7 +16,7 @@ In the [previous article]({% post_url 2022-06-29-the-single-layer-perceptron %})
 
 We add a hidden layer of neurons between the output and the input layer, as follows:
 
-![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/MLP.png)
+![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/MLP.png)
 <sub><sup>*Architecture of a Multi-Layer Perceptron*</sup></sub>
 
 The layer number is shown into brackets in superscript and the neuron number in each layer is shown in subscript.
@@ -43,7 +43,7 @@ $$
 The Mean-Square Error (MSE) cost function remains the same.
 
 $$
-J = \frac{1}{m}\sum_{i=1}^{m}(a^{(2)}_1i-y_i)^2
+J = \frac{1}{m}\sum_{i=1}^{m}(a^{(2)}_{1i}-y_i)^2
 $$
 
 ### Last layer
@@ -78,7 +78,7 @@ $$
 where $$\frac{dz^{(2)}_1}{d b^{(1)}} = 1$$
 
 
-The novelty here is that we also need to calculate the **sensitivity** of the cost function with respect to the activation of the previous layer $a^{(1)}_1 $. That's why we call this method **Backpropagation**.
+The novelty here is that we also need to calculate the **sensitivity** of the cost function with respect to the activation of the previous layer $$a^{(1)}_1 $$. That's why we call this method **Backpropagation**.
 
 $$
 \frac{dJ}{da^{(1)}_1} = \frac{dJ}{da^{(2)}_1} \frac{da^{(2)}_1}{dz^{(2)}_1} \frac{dz^{(2)}_1}{da^{(1)}_1} 
@@ -87,7 +87,7 @@ $$
 The only extra term we need to calculate is:
 
 $$
-\frac{dz^{(2)}_1}{da^{(1)}_1} = w^{(1)}
+\frac{dz^{(2)}_1}{da^{(1)}_1} = w^{(1)}_{11}
 $$
 
 ### First layer

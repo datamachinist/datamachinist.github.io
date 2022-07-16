@@ -7,7 +7,7 @@ category:
 ---
 
 
-![conda_logo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/conda_logo.png)
+![conda_logo]({{ site.url }}{{ site.baseurl }}/assets/images/conda_logo.png)
 
 
 

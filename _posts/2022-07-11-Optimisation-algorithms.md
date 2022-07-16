@@ -20,7 +20,7 @@ In this post, we will list some important optimisation algorithms, classed by ca
 ## 1. Global optimisation
 
 
-![Optimisation_algo_global]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Optimisation_algo_global.png)
+![Optimisation_algo_global]({{ site.url }}{{ site.baseurl }}/assets/images/Optimisation_algo_global.png)
 
 ### 1.1. Evolutionary optimisation - Population-based
 
@@ -137,7 +137,7 @@ In this post, we will list some important optimisation algorithms, classed by ca
 
 
 
-![Optimisation_algo_local]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Optimisation_algo_local.png)
+![Optimisation_algo_local]({{ site.url }}{{ site.baseurl }}/assets/images/Optimisation_algo_local.png)
 
 
 ### 2.1. Gradient-based

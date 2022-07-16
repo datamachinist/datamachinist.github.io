@@ -7,7 +7,7 @@ category:
 ---
 
 
-![docker_logo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/docker_logo.png)
+![docker_logo]({{ site.url }}{{ site.baseurl }}/assets/images/docker_logo.png)
 
 ## What is Docker?
 

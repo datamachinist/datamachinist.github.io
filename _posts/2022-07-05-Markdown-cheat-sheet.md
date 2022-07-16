@@ -7,7 +7,7 @@ category:
 ---
 
 
-![markdown_logo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/markdown_logo.png)
+![markdown_logo]({{ site.url }}{{ site.baseurl }}/assets/images/markdown_logo.png)
 
 ## Definition
 

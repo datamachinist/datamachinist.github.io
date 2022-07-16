@@ -148,13 +148,13 @@ It refers to an exponential increase in the size of data caused by a large numbe
 | Unsupervised learning                 | **Dimensionality reduction problems**<br/> Linear dimensionality reduction<br/> Principal Components Analysis (PCA) <br/> Independent Component Analysis (ICA)<br/><br/>  **Non-linear dimensionality reduction = manifold learning**<br/> Kernel PCA (KPCA) <br/> Isomap <br/> Multi-dimensional Scaling (MDS) <br/> Spectral Embedding <br/> Kernel approximation <br/> Locally linear embedding (LLE) <br/> t-distributed Stochastic Neighbor Embedding (t-SNE)<br/> Factor analysis (FA)<br/> Random projections<br/> Self-Organizing Map (SOM) <br/> Autoencoder (AE)  | **Clustering problems** <br/> K-means clustering <br/> Hierarchical clustering  eg. Balanced Iterative Reducing and Clustering using Hierarchies (BIRCH) <br/>  Density-based spatial clustering of applications with noise (DBSCAN) <br/> Expectation - Maximization algorithm (EM) <br/> Mean Shift Clustering <br/> Apriori algorithm <br/> Variational Bayesian Gaussian Mixture (VBGM) <br/> Gaussian Mixture Models (GMM) <br/> Spectral Clustering<br/><br/>   **Anomaly detection** <br/> OneClass SVM <br/> Isolation Forest <br/> Elliptic Envelope <br/> Local Outlier Factor (LOF)<br/> AutoEncoder (AE)  |                     |                                                   |
  
 
-![ML map scikit learn]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/ml_map.png)
+![ML map scikit learn]({{ site.url }}{{ site.baseurl }}/assets/images/ml_map.png)
 <sub><sup>*[Source](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html)*</sup></sub>
 
 - **Bias-variance trade-off**
 In supervised learning, bias and variance are 2 types of prediction error. A good method has low bias and low variance (i.e. a low test MSE). The bias-variance trade-off is the problem of simultaneously minimizing bias and variance in order to prevent supervised learning algorithms from generalizing beyond their training set.
 
-![bias_variance_tradeoff]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/bias_variance_tradeoff.jpeg)
+![bias_variance_tradeoff]({{ site.url }}{{ site.baseurl }}/assets/images/bias_variance_tradeoff.jpeg)
 <sub><sup>*[Source](https://medium.com/@mp32445/understanding-bias-variance-tradeoff-ca59a22e2a83)*</sup></sub>
 
 - **Bias**
@@ -173,20 +173,20 @@ It is a model validation technique for assessing how the results of a statistica
     - Pros: Fully independent data; only needs to be run once so has lower computational costs.
     - Cons: Performance evaluation is subject to higher variance given the smaller size of the data.
 
-![dataiku-holdout-strategy]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/dataiku-holdout-strategy.jpg)
+![dataiku-holdout-strategy]({{ site.url }}{{ site.baseurl }}/assets/images/dataiku-holdout-strategy.jpg)
 <sub><sup>*[Source](https://www.kdnuggets.com/2017/08/dataiku-predictive-model-holdout-cross-validation.html)*</sup></sub>
 
 - **K-fold cross-validation**
     - Pros: Prone to less variation because it uses the entire training set.
     - Cons: Higher computational costs; the model needs to be trained K times at the validation step (plus one more at the test step).
 
-![dataiku-kfold-strategy.jpg]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/dataiku-kfold-strategy.jpg)
+![dataiku-kfold-strategy.jpg]({{ site.url }}{{ site.baseurl }}/assets/images/dataiku-kfold-strategy.jpg)
 <sub><sup>*[Source](https://www.kdnuggets.com/2017/08/dataiku-predictive-model-holdout-cross-validation.html)*</sup></sub>
 
 - **Confusion matrix = error matrix**
 It is a table used to visualise the performance of a classification model on a set of test data for which the true values are known. (True Positive, True Negative, False Positive, False Negative)
 
-![confusion_matrix]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/confusion_matrix.png)
+![confusion_matrix]({{ site.url }}{{ site.baseurl }}/assets/images/confusion_matrix.png)
 <sub><sup>*[Source](http://rasbt.github.io/mlxtend/user_guide/evaluate/confusion_matrix/)*</sup></sub>
 
 - **Logistic regression**
@@ -277,7 +277,7 @@ It is a subset of nonlinear dimensionality reduction methods. The  aim is to ext
 It is a linear dimensionality reduction algorithm that reduce the original variables into a lower number of orthogonal - non correlated - synthesized variables called Principal Components (i.e. eigenvalues). 
 CONS: If the number of variables is large, it becomes hard to interpret the principal components. PCA is most suitable when variables have a linear relationship among them. Also, PCA is susceptible to big outliers. PCA was invented in 1901... there are more modern techniques out there. Some improvements of PCA are: robust PCA, kernel PCA and incremental PCA.
 
-![pca_6]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/pca_6.png)
+![pca_6]({{ site.url }}{{ site.baseurl }}/assets/images/pca_6.png)
 <sub><sup>*[Source](https://blog.paperspace.com/dimension-reduction-with-principal-component-analysis/)*</sup></sub>
 
 - **Independent Component Analysis (ICA)** = Blind Source Separation = Cocktail party problem
@@ -288,28 +288,28 @@ CONS: ICA cannot uncover non-linear relationships of the dataset. ICA does not s
 It is a distance-preserving manifold learning method.
 CONS: MDS requires large computing power for calculating the dissimilarity matrix at every iteration. It is hard to embed the new data in MDS.
 
-![mds_6_p_2]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/mds_6_p_2.png)
+![mds_6_p_2]({{ site.url }}{{ site.baseurl }}/assets/images/mds_6_p_2.png)
 <sub><sup>*[Source](https://blog.paperspace.com/dimension-reduction-with-multi-dimension-scaling/)*</sup></sub>
 
 - **Locally Linear Embedding (LLE)**
 It is a topology preserving manifold learning method.
 CONS: LLE is sensitive to outliers and noise. Datasets have a varying density and it is not always possible to have a smooth manifold. In these cases, LLE gives a poor result. Some improvements of LLE are: Hessian LLE, Modified LLE, and LTSA.
 
-![LLE_digits_6_30]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/LLE_digits_6_30.png)
+![LLE_digits_6_30]({{ site.url }}{{ site.baseurl }}/assets/images/LLE_digits_6_30.png)
 <sub><sup>*[Source](https://blog.paperspace.com/dimension-reduction-with-lle/)*</sup></sub>
 
 - **t-distributed Stochastic Neighbor Embedding (t-SNE)**
 It is a manifold learning technique that converts affinities of data points to probabilities.
 CONS: When considering more than 2-3 dimensions, t-SNE has the tendency to get stuck in local optima like other gradient descent based algorithms. The basic t-SNE algorithm is slow due to nearest neighbor search queries. An improvement of t-SNE is Barnes-Hut-SNE.
 
-![TSNE_6]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/TSNE_6.png)
+![TSNE_6]({{ site.url }}{{ site.baseurl }}/assets/images/TSNE_6.png)
 <sub><sup>*[Source](https://blog.paperspace.com/dimension-reduction-with-t-sne/)*</sup></sub>
 
 - **Isomap (= isometric mapping)**
 It is a manifold learning method based on the spectral theory which tries to preserve the geodesic distances in the lower dimension.
 CONS: Isomap performs poorly when manifold is not well sampled and contains holes. As mentioned earlier neighborhood graph creation is tricky and slightly wrong parameters can produce bad results.
 
-![isomap]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/isomap.png)
+![isomap]({{ site.url }}{{ site.baseurl }}/assets/images/isomap.png)
 <sub><sup>*[Source](https://blog.paperspace.com/dimension-reduction-with-isomap/)*</sup></sub>
 
 - **Spectral Embedding**
@@ -353,7 +353,7 @@ It is an activation function that turns numbers aka logits into probabilities th
 - **Convolutional Neural Network (CNN) = ConvNet**
 It is a deep neural network used for image recognition where the input neurons are replaced by a kernel convolution (i.e. a mask or filter applied to the image in order to extract important features such as edges).
 
-![cnn]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/cnn.jpeg)
+![cnn]({{ site.url }}{{ site.baseurl }}/assets/images/cnn.jpeg)
 <sub><sup>*[Source](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)*</sup></sub>
 
 - **Famous examples of CNN architectures for image classification on the IMAGENET dataset**
@@ -391,7 +391,7 @@ It is a generative stochastic ANN that can learn a probability distribution over
 It is a neural network with feedback connections - unlike in a FNN - that is useful to identify patterns for data organised in time series. RNNs are characterised by a loop structure where  the output from previous step are fed as input to the current step. They have a memory mechanism, which makes them suitable for applications where sequence is important such as in Natural Language Processing (e.g. speech recognition, handwriting recognition, chat bots), image captioning, self-driving cars, time series forecasting.
 
 
-![recurrent-neural]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/recurrent-neural.png)
+![recurrent-neural]({{ site.url }}{{ site.baseurl }}/assets/images/recurrent-neural.png)
 <sub><sup>*[Source](https://missinglink.ai/guides/neural-network-concepts/recurrent-neural-network-glossary-uses-types-basic-structure/)*</sup></sub>
 
 - **Gated Recurrent Units (GRU)**
@@ -412,15 +412,15 @@ It's a block of layer composed of skip connections. They are used to make deeper
 - **XOR problem**
 It is a classic problem in ANN research. It is the problem of using a neural network to predict the outputs of XOr (Exclusive Or) logic gates given two binary inputs. An XOr function should return a true value if the two inputs are not equal and a false value if they are equal.
 
-![xor]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/xor.png)
+![xor]({{ site.url }}{{ site.baseurl }}/assets/images/xor.png)
 
 
 When solving a classification problem in 2D, the AND problem is linearly separable but the XOR problem is not.
 
-![and]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/and.png)
+![and]({{ site.url }}{{ site.baseurl }}/assets/images/and.png)
 <sub><sup>*AND problem -- [Source](https://www.quora.com/What-is-XOR-problem-in-neural-networks)*</sup></sub>
 
-![xor2]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/xor2.png)
+![xor2]({{ site.url }}{{ site.baseurl }}/assets/images/xor2.png)
 <sub><sup>*XOR problem -- [Source](https://www.quora.com/What-is-XOR-problem-in-neural-networks)*</sup></sub>
 
 # 5. Machine learning software and tools
@@ -529,7 +529,7 @@ It is a marketing experiment wherein you "split" your audience to test a number 
     - *Latin Hypercube sampling* is a statistical method for generating a near-random sample of parameter values from a multidimensional distribution. It is an efficient way to sample a search space with a minimum of evaluation (useful when evaluating the function takes a lot of time). LHS typically requires less samples and converges faster than Monte Carlo Simple Random Sampling (MCSRS) methods.
 
 
-![sampling]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/sampling.png)
+![sampling]({{ site.url }}{{ site.baseurl }}/assets/images/sampling.png)
 <sub><sup>*[Source](https://online.kitp.ucsb.edu/online/cdm18/teyssier/oh/15.html)*</sup></sub>
 
 - **Monte Carlo methods**
@@ -588,7 +588,7 @@ The most frequent value in a population.
 
 - **Central tendency**
 
-![image-4]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/image-4.png)
+![image-4]({{ site.url }}{{ site.baseurl }}/assets/images/image-4.png)
 <sub><sup>*[Source](https://vula.uct.ac.za/access/content/group/9c29ba04-b1ee-49b9-8c85-9a468b556ce2/DOH/Module%202%20(Bio_Epi)/Biostatistics/BIOSTATISTICS/BS1-4.htm)*</sup></sub>
 
 - **Variance**
@@ -597,7 +597,7 @@ The average of the squared differences from the mean.
 - **Standard deviation**
 The square root of the variance. It measure of the dispersion of the data.
 
-![nordis3s]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/nordis3s.gif)
+![nordis3s]({{ site.url }}{{ site.baseurl }}/assets/images/nordis3s.gif)
 <sub><sup>*[Source](https://sam-koblenski.blogspot.com/2014/09/everyday-statistics-for-programmers_25.html)*</sup></sub>
 
 - **Range**
@@ -612,7 +612,7 @@ It is a measure of the asymmetry of a distribution. Negatively skewed curve has 
 - **Kurtosis**
 It is a measure of the "peaked-ness". Distributions with higher peaks have positive kurtosis and vice-versa.
 
-![image-6]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/image-6.png)
+![image-6]({{ site.url }}{{ site.baseurl }}/assets/images/image-6.png)
 <sub><sup>*[Source](https://www.researchgate.net/figure/The-distribution-patterns-Skewness-and-Kurtosis_fig1_253332732)*</sup></sub>
 
 - **Homoscedasticity (= homogeneity of variance)**
@@ -622,7 +622,7 @@ ie. the error term (that is, the "noise" or random disturbance in the relationsh
 - **Heteroscedasticity** 
 It refers to the situation where the size of the error term differs across values of an independent variable. Heteroscedasticity shows a ‘conic’ shape.
 
-![image-7]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/image-7.png)
+![image-7]({{ site.url }}{{ site.baseurl }}/assets/images/image-7.png)
 <sub><sup>*[Source](https://stats.stackexchange.com/questions/76151/what-is-an-intuitive-explanation-of-why-we-want-homoskedasticity-in-a-regression)*</sup></sub>
 
 - **Correlation**
@@ -639,7 +639,7 @@ It is a measure of the linear relationship between independent variables.
 
 - **Box plot = whisker plot**
 
-![image-3]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/image-3.png)
+![image-3]({{ site.url }}{{ site.baseurl }}/assets/images/image-3.png)
 
 The upper and lower whiskers represent scores outside the middle 50%.
 
@@ -753,7 +753,7 @@ It refers to any statistical test in which the test statistic has an F-distribut
 - **Z-test**
 It is a a test to assess whether mean of two groups are statistically different from each other or not. (valid if n > 30 for both groups)
 
-![image-1]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/image-1.png)
+![image-1]({{ site.url }}{{ site.baseurl }}/assets/images/image-1.png)
 
 A z-test is used for testing the mean of a population versus a standard, or comparing the means of two populations, with large (n > 30) samples whether you know the population's standard deviation or not. It is also used for testing the proportion of some characteristic versus a standard proportion, or comparing the proportions of two populations.
 Eg. Comparing the average engineering salaries of men versus women, comparing the fraction defectives from 2 production lines.
@@ -761,7 +761,7 @@ Eg. Comparing the average engineering salaries of men versus women, comparing th
 - **T-test**
 It is a test to assess whether mean of two groups are statistically different from each other or not. (valid if n < 30 for both groups)
 
-![image-2]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/image-2.png)
+![image-2]({{ site.url }}{{ site.baseurl }}/assets/images/image-2.png)
 
 A T-test refers to any statistical hypothesis test in which the test statistic follows a Student's t-distribution if the null hypothesis is supported. It can be used to determine if two sets of data are significantly different from each other, and is most commonly applied when the test statistic would follow a normal distribution if the value of a scaling term in the test statistic were known. 
 A T-test can determine if 2 features are related. It is used:

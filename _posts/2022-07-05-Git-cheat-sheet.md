@@ -7,7 +7,7 @@ category:
 ---
 
 
-![git_logo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/git_logo.png)
+![git_logo]({{ site.url }}{{ site.baseurl }}/assets/images/git_logo.png)
 
 
 ## Some definitions
@@ -25,7 +25,7 @@ A **branch** is a separate version of the main repository that allows the develo
 You can download a printable Git command line cheat sheet [here]({{ site.url }}{{ site.baseurl }}/assets/downloads/git-cheat-sheet.pdf) ([Source](https://www.jrebel.com/blog/git-cheat-sheet)).
 
 
-![git workflow]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/git_flow.png)
+![git workflow]({{ site.url }}{{ site.baseurl }}/assets/images/git_flow.png)
 <sub><sup>*[Source](https://www.jrebel.com/blog/git-cheat-sheet)*</sup></sub>
 
 ## Create a repository

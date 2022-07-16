@@ -183,7 +183,7 @@ for t in range(n_steps):
 env.close()
 ```
 
-![continuous Q learning results]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/Q_learning_CART.png)
+![continuous Q learning results]({{ site.url }}{{ site.baseurl }}/assets/images/Q_learning_CART.png)
 
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=-5m90K94TWo&" title="continuous Q learning video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

@@ -154,7 +154,7 @@ p.disconnect()
 Ok so we know how to import robots in Pybullet. Now, how do we train them? We need a way to interact with the simulation using the Gym interface. Fortunately, Pybullet interfaces very nicely with Gym using its pybullet_envs library. For example, you can import the cart-pole environment this way:
 
 
-![cartpole_pybullet]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/cartpole_pybullet.png)
+![cartpole_pybullet]({{ site.url }}{{ site.baseurl }}/assets/images/cartpole_pybullet.png)
 
 You can also visualise pre-trained environments [here](https://github.com/bulletphysics/bullet3/tree/master/examples/pybullet/gym/pybullet_envs/baselines). For example, see this Kuka grasping robot following a continuous downward policy using the following command.
 
@@ -165,4 +165,4 @@ python -m pybullet_envs.baselines.enjoy_kuka_diverse_object_grasping
 However, the environments found in pybullet_envs are not exactly the same as those offered by MuJoCo. Fortunately, the [Pybullet-gym](https://github.com/benelot/pybullet-gym) library has just re-implemented most [MuJoCo](https://github.com/deepmind/mujoco) and [Roboschool](https://openai.com/blog/roboschool/) environments in Pybullet and they seamlessly integrate with OpenAI Gym. For example, the MuJoCo reacher environment can be loaded using [this code](https://github.com/PierreExeter/gym-reacher).
 
 
-![cartpole_pybullet]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/pybullet-gym.png)
+![cartpole_pybullet]({{ site.url }}{{ site.baseurl }}/assets/images/pybullet-gym.png)

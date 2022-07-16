@@ -15,12 +15,12 @@ title_separator          : "-"
 subtitle                 : "Machine learning blog"
 name                     : &name "Pierre Aumjaud" # &name is a YAML anchor which can be *referenced later
 description              : &description "A blog on applied machine learning and data science."
-url                      : https://www.datasparked.com/  # https://datamachinist.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://www.datasparked.com/  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "datamachinist/datamachinist.github.io"
-domain                   : datasparked.com  # datamachinist.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-teaser                   : "/assets/images/datamachinist/Logo_Data_Sparked_transparent.png"  # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/datamachinist/Logo_Data_Sparked_transparent.png"  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+domain                   : datasparked.com      # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+teaser                   : "/assets/images/Logo_Data_Sparked_transparent.png"  # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : "/assets/images/Logo_Data_Sparked_transparent.png"  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -101,9 +101,9 @@ analytics:
 # Site Author
 author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier
-  avatar           : "/assets/images/datamachinist/profile.jpg"
+  avatar           : "/assets/images/profile.jpg"
   bio              : "Machine learning researcher"
-  location         : "Dublin, Ireland"
+  location         : 
   links:
     - label: "Personal website"
       icon: "fas fa-fw fa-link"
@@ -195,18 +195,18 @@ kramdown:
 
 # Collections
 collections:
-  docs:
-    output: true
-    permalink: /:collection/:path/
-  recipes:
-    output: true
-    permalink: /:collection/:path/
-  pets:
-    output: true
-    permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
+  # docs:
+  #   output: true
+  #   permalink: /:collection/:path/
+  # recipes:
+  #   output: true
+  #   permalink: /:collection/:path/
+  # pets:
+  #   output: true
+  #   permalink: /:collection/:path/
+  # portfolio:
+  #   output: true
+  #   permalink: /:collection/:path/
 
 
 # Defaults
@@ -230,18 +230,18 @@ defaults:
       layout: single
       author_profile: true
       comments: true
-  # _docs
-  - scope:
-      path: ""
-      type: docs
-    values:
-      layout: single
-      read_time: false
-      author_profile: false
-      share: false
-      comments: false
-      sidebar:
-        nav: "docs"
+  # # _docs
+  # - scope:
+  #     path: ""
+  #     type: docs
+  #   values:
+  #     layout: single
+  #     read_time: false
+  #     author_profile: false
+  #     share: false
+  #     comments: false
+  #     sidebar:
+  #       nav: "docs"
 
 
 # Sass/SCSS

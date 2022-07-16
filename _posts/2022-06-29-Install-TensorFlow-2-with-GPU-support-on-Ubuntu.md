@@ -7,7 +7,7 @@ category:
 ---
 
 
-![tensorflow_docker]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/logo_all.png)
+![tensorflow_docker]({{ site.url }}{{ site.baseurl }}/assets/images/logo_all.png)
 
 In previous posts, we have built simple neural networks by hand. Fortunately, there are libraries to build network architectures and calculate gradients automatically. TensorFlow is one of the most famous one. I will explain how to install this Python library on Ubuntu 18.04.
 
@@ -144,7 +144,7 @@ docker run -u $(id -u):$(id -g) --gpus all -it --rm --name my_tf_container -v ~/
 
 Once the container is running, your should see a URL to copy and paste in your browser that looks like "http://127.0.0.1:8888/?token=xxxxxxxxxx". You should then see a list of TensorFlow tutorials, as shown below.
 
-![tf_tutorials]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/tf_tutorials.png)
+![tf_tutorials]({{ site.url }}{{ site.baseurl }}/assets/images/tf_tutorials.png)
 <sub><sup>*Tensorflow tutorials*</sup></sub>
 
 Finally, you can use $ docker exec to run a command inside a running docker container. In another terminal, run this command:

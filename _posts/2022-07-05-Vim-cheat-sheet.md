@@ -7,7 +7,7 @@ category:
 ---
 
 
-![vim_logo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/vim_logo.png)
+![vim_logo]({{ site.url }}{{ site.baseurl }}/assets/images/vim_logo.png)
 
 ## Definition
 

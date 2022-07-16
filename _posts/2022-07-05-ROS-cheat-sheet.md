@@ -7,7 +7,7 @@ category:
 ---
 
 
-![ROS_logo]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/ros-logo.png)
+![ROS_logo]({{ site.url }}{{ site.baseurl }}/assets/images/ros-logo.png)
 
 
 

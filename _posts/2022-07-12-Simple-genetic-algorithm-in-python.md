@@ -6,7 +6,7 @@ category:
   - optimisation
 ---
 
-![generation_GA]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/frame49.png)
+![generation_GA]({{ site.url }}{{ site.baseurl }}/assets/images/frame49.png)
 
 We will look at how a genetic algorithm can be used to find the minimum of a function and implement it in Python.
 
@@ -37,7 +37,7 @@ In its most basic form, a genetic algorithm comprises the following stages:
 5. Termination according to criterion
 
 
-![GA]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/GA.png)
+![GA]({{ site.url }}{{ site.baseurl }}/assets/images/GA.png)
 
 ## Implementation
 
@@ -46,4 +46,4 @@ We will implement a simple genetic algorithm in Python. The objective is to find
 The source code can be found [here](https://github.com/PierreExeter/simple_GA).
 
 
-![animation_GA]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/animation_GA.gif)
+![animation_GA]({{ site.url }}{{ site.baseurl }}/assets/images/animation_GA.gif)

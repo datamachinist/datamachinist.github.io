@@ -18,7 +18,7 @@ Gym integrates very nicely with physics engines, which allows researchers to cre
 This is the classical pipeline for training RL robotics agents.
 
 
-![RL pipeline]({{ site.url }}{{ site.baseurl }}/assets/images/datamachinist/RL_pipeline.png)
+![RL pipeline]({{ site.url }}{{ site.baseurl }}/assets/images/RL_pipeline.png)
 
 In this tutorial series, you will learn how to create custom virtual environments with a particular focus on robotics applications.
 
