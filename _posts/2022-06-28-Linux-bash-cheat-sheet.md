@@ -457,10 +457,12 @@ ffmpeg -t 30 -i input.mp4 -vf "fps=10,scale=1280:-1:flags=lanczos,split[s0][s1];
 ffmpeg -t 30 -i input.mp4 -vf "fps=24,scale=300:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
 ```
 
-Create gif from images using convert
+Create gif from images using convert (from ImageMagik)
 
 ```bash
 convert -resize 50% -delay 20 -loop 0 input_{0..99}.jpg output.gif
+convert -resize 50% -delay 20 -loop 0 *.jpg output.gif
+convert -resize 50% -delay 20 -loop 0 `ls -v` output.gif
 ```   
 
     

@@ -6,15 +6,13 @@ category:
   - reinforcement learning
 ---
 
-
-
-In a previous [post]({% post_url 2022-06-24-Q-learning-for-discrete-state-problems %}), we used Q-learning to solve simple grid-world problems such as a maze or the Taxi-v2 environment. For these type of problems, it was possible to use a Q-table composed of a finite number of rows corresponding to each possible state. However in most real-life problems, the number of possible states is infinite so it is virtually impossible to define a Q-table as in the previous post. A workaround consists in discretising the state space into buckets and use these buckets as an entry in the Q-table. I will illustrate this concept using the Cart-Pole environment from OpenAI Gym.
+In a previous [post]({% post_url 2022-06-24-Q-learning-for-discrete-state-problems %}), we used Q-learning to solve simple grid-world problems such as a maze or the Taxi-v3 environment. For these type of problems, it was possible to use a Q-table composed of a finite number of rows corresponding to each possible state. However in most real-life problems, the number of possible states is infinite so it is virtually impossible to define a Q-table as in the previous post. A workaround consists in discretising the state space into buckets and use these buckets as an entry in the Q-table. I will illustrate this concept using the Cart-Pole environment from OpenAI Gym.
 
 ## Cart-Pole environment
 
 The Cart-Pole environment was described in a previous [post](/_posts/2022-06-24-create-training-environments-with-openAI-gym.md). Basically, the agent must learn to balance an inverted pendulum by pushing a cart sliding on a rail towards the right or towards the left.
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=46wjA6dqxOM" title="Cart-pole env" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![cartpole]({{ site.url }}{{ site.baseurl }}/assets/images/cartpole.png)
 
 Let's have a look at the environment's action and state space.
 
@@ -182,19 +180,54 @@ for t in range(n_steps):
  
 env.close()
 ```
+The training curve and the trained agent are shown below.
 
-![continuous Q learning results]({{ site.url }}{{ site.baseurl }}/assets/images/Q_learning_CART.png)
+![Qlearning_cartpole]({{ site.url }}{{ site.baseurl }}/assets/images/Qlearning_cartpole.png)
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=-5m90K94TWo&" title="continuous Q learning video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![cartpole2]({{ site.url }}{{ site.baseurl }}/assets/images/cartpole2.gif)
 
-The full code can be found [here](https://github.com/PierreExeter/Q-learning-cart-pole).
+The full code can be found [here](https://github.com/PierreExeter/RL-tutorials/tree/main/3_Q_learning_continuous_state).
 
 ## Discretising the state and action space
 
-It is possible to discretise both the state and action space. For example, the Pendulum-v0 environment is characterised by continuous state and action spaces.
+Some problems are characterised by continuous state **and** action space, such as the [Pendulum-v1 environment](https://github.com/openai/gym/blob/master/gym/envs/classic_control/pendulum.py). This environment simulates an inverted pendulum swingup problem, which is a classic problem in the control literature. In this version of the problem, the pendulum starts in a random position and the goal is to swing it up so it stays upright. In this environment, the state and action spaces are continuous. In order to apply Q-Learning, it is necessary to discretize the continuous state and action spaces into a number of buckets.
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=qVr0fDfC64A&f" title="pendulum env" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+The full code can be found [here](https://github.com/PierreExeter/RL-tutorials/tree/main/4_Q_learning_continuous_state_action).
+
+The continuous action can be discretised into buckets as follows,
+
+```python
+def discretize_action(action, lower_bounds, upper_bounds, buckets):
+    ratios = (action + abs(lower_bounds)) / (upper_bounds - lower_bounds)
+    new_action = int(np.round((buckets - 1) * ratios))
+    new_action = min(buckets - 1, max(0, new_action))
+    res = (new_action,)    # need to convert int to tuple
+    return res
+```
+
+It is also necessary to convert the discretised action back to a float:
+
+```python
+def convert_action_to_float(x):
+    OldMax = action_buckets-1 
+    OldMin = 0
+    NewMax = 2
+    NewMin = -2
+
+    OldRange = (OldMax - OldMin)  
+    NewRange = (NewMax - NewMin)  
+    y = (((x - OldMin) * NewRange) / OldRange) + NewMin
+    res = [y] # need to convert to a list to be readable by the step function
+    return res
+```
+
+The training curve and the trained agent are shown below.
+
+![Qlearning_pendulum]({{ site.url }}{{ site.baseurl }}/assets/images/Qlearning_pendulum.png)
+
+![pendulum]({{ site.url }}{{ site.baseurl }}/assets/images/pendulum.gif)
+
 
 ## Limitations of the discretisation
 

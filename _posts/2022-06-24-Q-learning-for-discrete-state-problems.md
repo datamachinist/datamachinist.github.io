@@ -57,9 +57,8 @@ In our maze problem, if we assume a discount factor equal to 1, the Q value of b
 
 ![Qlearning2]({{ site.url }}{{ site.baseurl }}/assets/images/q_learning/Q02.png)
 
-Here is a short video to illustrate the whole process.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/myXkvoetR8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Here is an animation to illustrate the whole process.
+![qlearning_process]({{ site.url }}{{ site.baseurl }}/assets/images/q_learning/q_learning.gif)
 
 ## Exploration vs exploitation
 
@@ -91,7 +90,7 @@ If $$\alpha = 0$$, the Q value is not updated and if $$\alpha = 1$$, we obtain t
 
 ## Let's see some code -- the taxi problem
 
-Let apply Q learning to a benchmark problem from the OpenAI Gym library: the [Taxi-v2](https://github.com/openai/gym/blob/master/gym/envs/toy_text/taxi.py) environment. The taxi problem consists of a 5-by-5 grid world where a taxi can move. The goal is to pick up a passenger at one of the 4 possible locations and to drop him off in another.
+Let apply Q learning to a benchmark problem from the OpenAI Gym library: the [Taxi-v3](https://github.com/openai/gym/blob/master/gym/envs/toy_text/taxi.py) environment. The taxi problem consists of a 5-by-5 grid world where a taxi can move. The goal is to pick up a passenger at one of the 4 possible locations and to drop him off in another.
 
 ### The rules
 
@@ -116,85 +115,114 @@ The color coding is as follows:
 
 ### The code
 
-The code can be found [here](https://github.com/PierreExeter/Q-learning-Taxi-V2). 
+The code can be found [here](https://github.com/PierreExeter/RL-tutorials/tree/main/2_Q_learning_discrete).
 
+We first initialise the environment.
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
-import gym
-import random
+env = gym.make("Taxi-v3")
+```
 
-# CREATE THE ENVIRONMENT
-env = gym.make("Taxi-v2")
-action_size = env.action_space.n
-state_size = env.observation_space.n
-print("Action space size: ", action_size)
-print("State space size: ", state_size)
-
-# INITIALISE Q TABLE TO ZERO
-Q = np.zeros((state_size, action_size))
-
-# HYPERPARAMETERS
+We then define some training hyperparameters.
+```python
 train_episodes = 2000         # Total train episodes
-test_episodes = 100           # Total test episodes
-max_steps = 100               # Max steps per episode
+test_episodes = 10            # Total test episodes
+n_steps = 100                 # Max steps per episode
 alpha = 0.7                   # Learning rate
 gamma = 0.618                 # Discounting rate
-
-# EXPLORATION / EXPLOITATION PARAMETERS
-epsilon = 1                   # Exploration rate
 max_epsilon = 1               # Exploration probability at start
 min_epsilon = 0.01            # Minimum exploration probability 
 decay_rate = 0.01             # Exponential decay rate for exploration prob
+```
 
-# TRAINING PHASE
-training_rewards = []   # list of rewards
+We define the greedy and epsilon policies as follows,
+```python
+def greedy_policy(state):
+    return np.argmax(Q[state, :])  
+
+def epsilon_policy(state, epsilon):
+    exp_exp_tradeoff = random.uniform(0, 1)
+    if exp_exp_tradeoff <= epsilon:
+        action = env.action_space.sample()  # exploration
+    else:
+        action = np.argmax(Q[state, :])     # exploitation
+    return action
+```
+
+The exploration rate $$\epsilon$$ is decreased at each new episode as we require less exploration and more exploitation. 
+
+```python
+def get_epsilon(episode):
+    return min_epsilon + (max_epsilon - min_epsilon) * np.exp(-decay_rate * episode)
+```
+
+The Q table is updated using the Bellman equation as follows,
+
+```python
+def update_q(current_state, action, reward, new_state, alpha):
+    Q[current_state][action] += alpha * (reward + gamma * np.max(Q[new_state]) - Q[current_state][action])
+```
+
+The training phase is implemented as follow,
+
+
+```python
+training_rewards = []
 
 for episode in range(train_episodes):
-    state = env.reset()    # Reset the environment
-    cumulative_training_rewards = 0
+    state = env.reset()
+    episode_rewards = 0
     
-    for step in range(max_steps):
-        # Choose an action (a) among the possible states (s)
-        exp_exp_tradeoff = random.uniform(0, 1)   # choose a random number
-        
-        # If this number > epsilon, select the action corresponding to the biggest Q value for this state (Exploitation)
-        if exp_exp_tradeoff > epsilon:
-            action = np.argmax(Q[state,:])        
-        # Else choose a random action (Exploration)
-        else:
-            action = env.action_space.sample()
-        
-        # Perform the action (a) and observe the outcome state(s') and reward (r)
-        new_state, reward, done, info = env.step(action)
+    epsilon = get_epsilon(episode)
 
-        # Update the Q table using the Bellman equation: Q(s,a):= Q(s,a) + lr [R(s,a) + gamma * max Q(s',a') - Q(s,a)]
-        Q[state, action] = Q[state, action] + alpha * (reward + gamma * np.max(Q[new_state, :]) - Q[state, action]) 
-        cumulative_training_rewards += reward  # increment the cumulative reward        
+    for t in range(n_steps):
+        action = epsilon_policy(state, epsilon)
+        new_state, reward, done, info = env.step(action)
+        update_q(state, action, reward, new_state, alpha)
+        episode_rewards += reward       
         state = new_state         # Update the state
         
-        # If we reach the end of the episode
-        if done == True:
-            print ("Cumulative reward for episode {}: {}".format(episode, cumulative_training_rewards))
+        if done:
+            print('Episode:{}/{} finished after {} timesteps | Total reward: {}'.format(episode, train_episodes, t+1, episode_rewards))
             break
-    
-    # Reduce epsilon (because we need less and less exploration)
-    epsilon = min_epsilon + (max_epsilon - min_epsilon)*np.exp(-decay_rate*episode)
-    
-    # append the episode cumulative reward to the list
-    training_rewards.append(cumulative_training_rewards)
 
-print ("Training score over time: " + str(sum(training_rewards)/train_episodes))
+    training_rewards.append(episode_rewards)
+
+mean_train_reward = sum(training_rewards) / len(training_rewards)
+print ("Average cumulated rewards over {} episodes: {}".format(train_episodes, mean_train_reward))
+```
+
+And finally, the agent is tested on the environment:
+
+
+```python
+test_rewards = []
+
+for episode in range(test_episodes):
+    state = env.reset()
+    episode_rewards = 0
+
+    for t in range(n_steps):
+        env.render()
+        action = greedy_policy(state)       
+        new_state, reward, done, info = env.step(action)
+        episode_rewards += reward
+        state = new_state
+       
+        if done:
+            print('Episode:{}/{} finished after {} timesteps | Total reward: {}'.format(episode, test_episodes, t+1, episode_rewards))
+            break
+
+    test_rewards.append(episode_rewards)
+
+mean_test_reward = sum(test_rewards) / len(test_rewards)
+print ("Average cumulated rewards over {} episodes: {}".format(test_episodes, mean_test_reward))
 ```
 
 The cumulative reward vs the number of episode is shown below.
-
-
-![bellman2]({{ site.url }}{{ site.baseurl }}/assets/images/Q-learning-1024x768.png)
+![Q_learning_taxi]({{ site.url }}{{ site.baseurl }}/assets/images/Q_learning_taxi.png)
 
 Here is the trained taxi agent in action.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fIBy0T3i1oI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![taxi_v3]({{ site.url }}{{ site.baseurl }}/assets/images/taxi_v3.gif)
 
 ## Conclusion
 
