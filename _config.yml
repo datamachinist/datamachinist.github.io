@@ -17,7 +17,7 @@ name                     : &name "Pierre Aumjaud" # &name is a YAML anchor which
 description              : &description "A blog on applied machine learning and data science."
 url                      : https://www.datasparked.com/  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "datamachinist/datamachinist.github.io"
+repository               : "datasparked/datasparked.github.io"
 domain                   : datasparked.com      # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 teaser                   : "/assets/images/Logo_Data_Sparked_transparent.png"  # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/Logo_Data_Sparked_transparent.png"  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
