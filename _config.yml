@@ -19,8 +19,8 @@ url                      : https://www.datasparked.com/  # the base hostname & p
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "datasparked/datasparked.github.io"
 domain                   : datasparked.com      # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-teaser                   : "/assets/images/Logo_Data_Sparked_transparent.png"  # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/Logo_Data_Sparked_transparent.png"  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+teaser                   : "/assets/images/Logo_Data_Sparked_round_small.png"  # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : "/assets/images/Logo_Data_Sparked_round_small.png"  # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
