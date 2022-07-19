@@ -549,3 +549,18 @@ ls -lrt
 wget http://www.website-name.com
 curl http://www.website-name.com
 ```   
+
+- Execute the previous command with sudo 
+```bash
+sudo !!
+``` 
+
+- Login as root
+```bash
+sudo -i
+```
+
+- Logout as root
+```bash
+CTRL + D
+```
