@@ -18,7 +18,7 @@ We will look at implementing an ANN with 3 input neurons. This means that our pr
 ![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/simple_NN.png)
 <sub><sup>*Architecture of the neural network*</sup></sub>
 
-$$w^{(L)}_{ij}$$ is the weight between the $$i^{th}$$ neuron in layer $$L-1$$ and the $$j^{th}$$ neuron in layer $$L$$. 
+For each variable, the layer number is shown in superscript and the item number in each variable is shown in subscript. For example, $$w^L_i$$ is the $$i^{th}$$ weight in layer $$L$$. 
 
 
 
@@ -27,13 +27,13 @@ $$w^{(L)}_{ij}$$ is the weight between the $$i^{th}$$ neuron in layer $$L-1$$ an
 We will derive the equations as in the previous posts. Please refer to them for more details. The activation of the predicted output $$\hat{y}$$ can be written as follows,
 
 $$
-\hat{y} = a^{(1)}_1 = \sigma(z^{(1)}_1) 
+\hat{y} = a^1_0 = \sigma(z^1_0) 
 $$
 
-where
+From the network architecture, we get:
 
 $$
-z^{(1)}_1 = a^{(0)}_1 w^{(0)}_{11} + a^{(0)}_2 w^{(0)}_{21} + a^{(0)}_3 w^{(0)}_{31} + b^{(0)} 
+z^1_0 = a^0_0 w^0_0 + a^0_1 w^0_1 + a^0_2 w^0_2 + b^0
 $$
 
 ## Backpropagation
@@ -41,36 +41,40 @@ $$
 The MSE cost function is defined as follows,
 
 $$
-J = \frac{1}{m}\sum_{i=1}^{m}(a^{(1)}_{1i}-y_i)^2
+J = \frac{1}{m}\sum_{i=1}^{m}(a^1_{0i}-y_i)^2
 $$
 
-Let's apply Gradient Descent to the first weight $$w^{(0)}_{11}$$.
+Let's apply Gradient Descent to the first weight $$w^0_0$$.
 
 $$
-w^{(0)}_{11} := w^{(0)}_{11} - \alpha \frac{\partial J}{\partial  w^{(0)}_{11}} 
+w^0_0 := w^0_0 - \alpha \frac{\partial J}{\partial w^0_0} 
 $$
 
 The chain rule now becomes,
 
 $$
-\frac{\partial J}{\partial w^{(0)}_{11}} = \frac{\partial J}{\partial a^{(1)}_1} \frac{\partial a^{(1)}_1}{\partial z^{(1)}_1} \frac{\partial z^{(1)}_1}{\partial w^{(0)}_{11}} 
+\frac{\partial J}{\partial w^0_0} = \frac{\partial J}{\partial a^1_0} \frac{\partial a^1_0}{\partial z^1_0} \frac{\partial z^1_0}{\partial w^0_0} 
 $$
 
 Isolating each terms, we have:
 
 $$
-\frac{\partial J}{\partial a^{(1)}_1} = \frac{2}{m}(a^{(1)}_1-y)  \\
-\frac{\partial a^{(1)}_1}{\partial z^{(1)}_1} = \sigma'(z^{(1)}_1) \\
-\frac{\partial z^{(1)}_1}{\partial w^{(0)}_{11}} = a^{(0)}_1 
+\begin{align*}
+\frac{\partial J}{\partial a^1_0} &= \frac{2}{m}(a^1_0-y)  \\
+\frac{\partial a^1_0}{\partial z^1_0} &= \sigma'(z^1_0) \\
+\frac{\partial z^1_0}{\partial w^0_0} &= a^0_0
+\end{align*}
 $$
 
-If we repeats the same steps for the other 2 weights and the bias, we get:
+If we repeat the same steps for the other 2 weights and the bias, we get:
 
 $$
-\frac{\partial J}{\partial w^{(0)}_{11}} = \frac{2}{m}(a^{(1)}_1-y)  \sigma'(z^{(1)}_1) a^{(0)}_1 \\
-\frac{\partial J}{\partial w^{(0)}_{21}} = \frac{2}{m}(a^{(1)}_1-y)  \sigma'(z^{(1)}_1) a^{(0)}_2 \\
-\frac{\partial J}{\partial w^{(0)}_{31}} = \frac{2}{m}(a^{(1)}_1-y)  \sigma'(z^{(1)}_1) a^{(0)}_3 \\
-\frac{\partial J}{\partial b^{(1)}} =  \frac{2}{m}(a^{(1)}_1-y)  \sigma'(z^{(1)}_1)
+\begin{align*}
+\frac{\partial J}{\partial w^0_0} &= \frac{2}{m}(a^1_0-y) \sigma'(z^1_0) a^0_0 \\
+\frac{\partial J}{\partial w^0_1} &= \frac{2}{m}(a^1_0-y) \sigma'(z^1_0) a^0_1 \\
+\frac{\partial J}{\partial w^0_2} &= \frac{2}{m}(a^1_0-y) \sigma'(z^1_0) a^0_2 \\
+\frac{\partial J}{\partial b^0} &= \frac{2}{m}(a^1_0-y) \sigma'(z^1_0)
+\end{align*}
 $$
 
 We are now ready to implement!

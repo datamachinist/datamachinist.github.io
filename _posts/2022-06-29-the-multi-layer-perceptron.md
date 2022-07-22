@@ -19,22 +19,25 @@ We add a hidden layer of neurons between the output and the input layer, as foll
 ![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/MLP.png)
 <sub><sup>*Architecture of a Multi-Layer Perceptron*</sup></sub>
 
-The layer number is shown into brackets in superscript and the neuron number in each layer is shown in subscript.
+The layer number is shown in superscript for each variable.
 
 ## Feedforward
 
 We can now write the activation of each neuron as follows,
 
 $$
-a^{(2)}_1 = \sigma(z^{(2)}_1) \\
-a^{(1)}_1 = \sigma(z^{(1)}_1) 
+\begin{align*}
+\hat{y} = a^2 &= \sigma(z^2) \\
+a^1 &= \sigma(z^1) 
+\end{align*}
 $$
 
-where
+
+From the network architecture, we get:
 
 $$
-z^{(2)}_1 = a^{(1)}_1 w^{(1)}_{11}+b^{(1)} \\
-z^{(1)}_1 = a^{(0)}_1 w^{(0)}_{11}+b^{(0)} 
+z^2 = a^1 w^1 + b^1 \\
+z^1 = a^0 w^0 + b^0 
 $$
 
 
@@ -43,7 +46,7 @@ $$
 The Mean-Square Error (MSE) cost function remains the same.
 
 $$
-J = \frac{1}{m}\sum_{i=1}^{m}(a^{(2)}_{1i}-y_i)^2
+J = \frac{1}{m}\sum_{i=1}^{m}(a^2_i-y_i)^2
 $$
 
 ### Last layer
@@ -51,43 +54,45 @@ $$
 Let's apply Gradient Descent to the weight and bias of the last layer,
 
 $$
-w^{(1)}_{11} := w^{(1)}_{11} - \alpha \frac{dJ}{dw^{(1)}_{11}} \\
-b^{(1)} := b^{(1)} - \alpha \frac{dJ}{db^{(1)}} 
+w^1 := w^1 - \alpha \frac{dJ}{dw^1} \\
+b^1 := b^1 - \alpha \frac{dJ}{db^1} 
 $$
 
 The chain rule now becomes,
 
 $$
-\frac{dJ}{dw^{(1)}_{11}} = \frac{dJ}{da^{(2)}_1} \frac{da^{(2)}_1}{dz^{(2)}_1} \frac{dz^{(2)}_1}{dw^{(1)}_{11}} 
+\frac{dJ}{dw^1} = \frac{dJ}{da^2} \frac{da^2}{dz^2} \frac{dz^2}{dw^1}
 $$
 
 Isolating each terms, we have:
 
 $$
-\frac{dJ}{da^{(2)}_1} = \frac{2}{m}(a^{(2)}_1-y)  \\
-\frac{da^{(2)}_1}{dz^{(2)}_1} = \sigma'(z^{(2)}_1) \\
-\frac{dz^{(2)}_1}{dw^{(1)}_{11}} = a^{(1)}_1 
+\begin{align*}
+\frac{dJ}{da^2} &= \frac{2}{m}(a^2-y)  \\
+\frac{da^2}{dz^2} &= \sigma'(z^2) \\
+\frac{dz^2}{dw^1} &= a^1 
+\end{align*}
 $$
 
 Similarly for the bias,
 
 $$
-\frac{dJ}{d b^{(1)}} = \frac{dJ}{da^{(2)}_1} \frac{da^{(2)}_1}{dz^{(2)}_1} \frac{dz^{(2)}_1}{d b^{(1)}} 
+\frac{dJ}{db^1} = \frac{dJ}{da^2} \frac{da^2}{dz^2} \frac{dz^2}{db^1} 
 $$
 
-where $$\frac{dz^{(2)}_1}{d b^{(1)}} = 1$$
+where $$\frac{dz^2}{db^1} = 1$$
 
 
-The novelty here is that we also need to calculate the **sensitivity** of the cost function with respect to the activation of the previous layer $$a^{(1)}_1 $$. That's why we call this method **Backpropagation**.
+The novelty here is that we also need to calculate the **sensitivity** of the cost function with respect to the activation of the previous layer $$ a^1 $$. That's why we call this method **Backpropagation**.
 
 $$
-\frac{dJ}{da^{(1)}_1} = \frac{dJ}{da^{(2)}_1} \frac{da^{(2)}_1}{dz^{(2)}_1} \frac{dz^{(2)}_1}{da^{(1)}_1} 
+\frac{dJ}{da^1} = \frac{dJ}{da^2} \frac{da^2}{dz^2} \frac{dz^2}{da^1} 
 $$
 
 The only extra term we need to calculate is:
 
 $$
-\frac{dz^{(2)}_1}{da^{(1)}_1} = w^{(1)}_{11}
+\frac{dz^2}{da^1} = w^1
 $$
 
 ### First layer
@@ -97,36 +102,38 @@ We can now look at adjusting the weight and bias of the first layer by using the
 Gradient descent for the weight in the first layer:
 
 $$
-w^{(0)}_{11} := w^{(0)}_{11} - \alpha \frac{dJ}{dw^{(0)}_{11}}
+w^0 := w^0 - \alpha \frac{dJ}{dw^0}
 $$
 
 Chain rule for the weight in the first layer:
 
 $$
-\frac{dJ}{dw^{(0)}_{11}} = \frac{dJ}{da^{(1)}_1} \frac{da^{(1)}_1}{dz^{(1)}_1} \frac{dz^{(1)}_1}{dw^{(0)}_{11}} 
+\frac{dJ}{dw^0} = \frac{dJ}{da^1} \frac{da^1}{dz^1} \frac{dz^0}{dw^0} 
 $$
 
 where
 
 $$
-\frac{dJ}{da^{(1)}_1} = \textrm{already calculated} \\
-\frac{da^{(1)}_1}{dz^{(1)}_1} = \sigma'(z^{(1)}_1) \\
-\frac{dz^{(1)}_1}{dw^{(0)}_{11}} = a^{(0)}_1 
+\begin{align*}
+\frac{dJ}{da^1} &= \textrm{already calculated} \\
+\frac{da^1}{dz^1} &= \sigma'(z^1) \\
+\frac{dz^1}{dw^0} &= a^0 
+\end{align*}
 $$
 
 Gradient descent for the bias in the first layer:
 
 $$
-b^{(0)} := b^{(0)} - \alpha \frac{dJ}{db^{(0)}} 
+b^0 := b^0 - \alpha \frac{dJ}{db^0} 
 $$
 
 Chain rule for the bias in the first layer:
 
 $$
-\frac{dJ}{db^{(0)}} = \frac{dJ}{da^{(1)}_1} \frac{da^{(1)}_1}{dz^{(1)}_1} \frac{dz^{(1)}_1}{db^{(0)}} 
+\frac{dJ}{db^0} = \frac{dJ}{da^1} \frac{da^1}{dz^1} \frac{dz^1}{db^{0}} 
 $$
 
-where $$\frac{dz^{(1)}_1}{db^{(0)}} = 1$$
+where $$\frac{dz^1}{db^0} = 1$$
 
 
 ## Conclusion

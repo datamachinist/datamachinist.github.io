@@ -28,7 +28,7 @@ The architecture of the SLP is as follows,
 
 The SLP maps an **input** $$x$$ (there is only one feature here) to a predicted **output** $$\hat{y}$$. We define a **weight** $$w$$ and a **bias** $$b$$ between the 2 layers. The goal is to determine the weight and the bias that minimise a cost function that we will define later.
 
-$$\hat{y}$$. is the output of an **activation function** such as the **Sigmoid** function. This function squashes a real number into the [0, 1] interval. If the real number is negative, the output is close to 0 and if it is positive, the output is close to 1.
+$$\hat{y}$$ is the output of an **activation function** such as the **Sigmoid** function. This function squashes a real number into the [0, 1] interval. If the real number is negative, the output is close to 0 and if it is positive, the output is close to 1.
 
 
 ![machine learning types]({{ site.url }}{{ site.baseurl }}/assets/images/sigmoid_function.png)
@@ -44,7 +44,7 @@ $$
 \hat{y} = \sigma(z)
 $$
 
-where $$z = xw + b$$
+From the network architecture, we get $$z = xw + b$$
 
 In order to identify the optimal values for the weight and bias, we need to define a cost function $$J$$. In this case, we will use the **Mean Square Error (MSE)**, which is a common metric for classification problems but we could also use other ones.
 
@@ -71,9 +71,11 @@ $$
 Using previous equations, we can calculate each of the terms.
 
 $$
-\frac{dJ}{d\hat{y}} = \frac{2}{m}(\hat{y}-y)  \\
-\frac{d\hat{y}}{dz} = \sigma'(z) = \sigma(z) (1 - \sigma(z)) \\
-\frac{dz}{dw} = x
+\begin{align*}
+\frac{dJ}{d\hat{y}} &= \frac{2}{m}(\hat{y}-y)  \\
+\frac{d\hat{y}}{dz} &= \sigma'(z) = \sigma(z) (1 - \sigma(z)) \\
+\frac{dz}{dw} &= x
+\end{align*}
 $$
 
 We can do the same for the bias. The Gradient Descent is:
@@ -92,9 +94,11 @@ $$
 And finally we have:
 
 $$
-\frac{dJ}{d\hat{y}} = \frac{2}{m}(\hat{y}-y)  \\
-\frac{d\hat{y}}{dz} = \sigma'(z) = \sigma(z) (1 - \sigma(z)) \\
-\frac{dz}{db} = 1
+\begin{align*}
+\frac{dJ}{d\hat{y}} &= \frac{2}{m}(\hat{y}-y)  \\
+\frac{d\hat{y}}{dz} &= \sigma'(z) = \sigma(z) (1 - \sigma(z)) \\
+\frac{dz}{db} &= 1
+\end{align*}
 $$
 
 That's it! If we iterate the process enough times, the cost function will decrease and the weight and bias will converge to their optimal values.
