@@ -276,10 +276,159 @@ That's enough maths for now, let put this in application!
 
 ## Implementation
 
-https://stackabuse.com/creating-a-neural-network-from-scratch-in-python-multi-class-classification/
+We start by importing some libraries and defining the Sigmoid, Softmax and Cross-entropy functions.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def softmax(A):
+    expA = np.exp(A)
+    return expA / expA.sum(axis=1, keepdims=True)
+
+def cost_function(y, yhat):
+    """ Cross-entropy cost function (y and yhat are arrays) """
+    return np.sum(-Y * np.log(yhat))
+```
+
+We create a train and test set. Each dataset is composed of 1500 observations clustered in 3 clouds of 500 observations each. 
 
 
-![J_vs_epoch_multiclass_mlp]({{ site.url }}{{ site.baseurl }}/assets/images/J_vs_epoch_multiclass_mlp.png)
+In our problem, we have 3 classes, which is why we built our network architecture with an output layer composed of 3 neurons corresponding to each class. We want the model to output an array of size 3 where one value is 1 while all the others remain at 0. For this reason, we convert the output vector 
 
 
-![test_vs_train_multiclass_mlp]({{ site.url }}{{ site.baseurl }}/assets/images/test_vs_train_multiclass_mlp.png)
+
+
+For multi-class classification problems, we need to define the output label as a one-hot encoded vector since our output layer will have three nodes and each node will correspond to one output class. We want that when an output is predicted, the value of the corresponding node should be 1 while the remaining nodes should have a value of 0. For that, we need three values for the output label for each record. This is why we need to create a one-hot encoded output array. In our case, the output array has 1 at index 0 for the first 500 observations, 1 at index 1 for next 500 observations and 1 at index 2 for the last 500 observations.
+
+```python
+def create_dataset(seed_nb):
+    """ 
+    Create dataset of 1500 observations clustered in 3 Gaussian clouds.
+    Each observation has two features. The data is randomly generated based on the seed seed_nb.
+    """
+    np.random.seed(seed_nb)
+    # generate three Gaussian clouds each holding 500 points
+    X1 = np.random.randn(500, 2) + np.array([0, -2])   # (500 X 2)
+    X2 = np.random.randn(500, 2) + np.array([2, 2])    # (500 X 2)
+    X3 = np.random.randn(500, 2) + np.array([-2, 2])   # (500 X 2)
+
+    # put them all in a big matrix
+    X = np.vstack([X1, X2, X3])  # (1500 X 2)
+
+    # generate the one-hot-encodings output array
+    labels = np.array([0]*500 + [1]*500 + [2]*500)  # (1500 X 1)
+    Y = np.zeros((1500, 3))
+    for i in range(1500):
+        Y[i, labels[i]] = 1    # (1500 X 3)
+
+    return X, Y
+
+# Create train and test data
+X, Y = create_dataset(seed_nb=4526)
+X_test, Y_test = create_dataset(seed_nb=7516)
+```
+
+We define the hyperparameters of the model and initialise the weights and biases randomly.
+
+```python
+alpha = 10e-6
+samples = X.shape[0] # 1500 samples
+features = X.shape[1] # 2 features
+hidden_nodes = 4
+classes = 3
+nb_epoch = 10000
+
+W1 = np.random.randn(features, hidden_nodes)  # (2 X 5)
+b1 = np.random.randn(hidden_nodes)            # (5 X 1)
+W2 = np.random.randn(hidden_nodes, classes)   # (5 X 3)
+b2 = np.random.randn(classes)                 # (3 X 1)
+```
+
+During the training phase, we perform the feedforward and Backpropagation steps using the Sigmoid, Softmax and Cross-entropy functions and the equations derived previously. 
+
+```python
+costs = []
+
+for epoch in range(nb_epoch):
+    # Feedforward
+    ## Layer 1
+    Z1 = X.dot(W1) + b1  # (1500 X 5)
+    A1 = sigmoid(Z1)  # (1500 X 5)
+
+    ## Layer 2
+    Z2 = A1.dot(W2) + b2 # (1500 X 3)
+    A2 = softmax(Z2) # (1500 X 3)
+
+    # cost function: cross-entropy
+    J = cost_function(Y, A2)
+    costs.append(J)
+
+    # Backpropagation
+    delta2 = A2 - Y              # (1500 X 3)
+    delta1 = (delta2).dot(W2.T) * A1 * (1 - A1)    # (1500 X 5)
+
+    # Layer 2
+    W2 -= alpha * A1.T.dot(delta2)
+    b2 -= alpha * (delta2).sum(axis=0)
+
+    # Layer 1
+    W1 -= alpha * X.T.dot(delta1)
+    b1 -= alpha * (delta1).sum(axis=0)
+
+    print("Epoch {}/{} | cost function: {}".format(epoch, nb_epoch, J))
+```
+
+
+We can plot the evolution of the cost function with the number of epochs.
+
+
+```python
+plt.plot(costs)
+plt.xlabel('Epoch #')
+plt.ylabel('Training error')
+plt.savefig('plots/3_J_vs_epoch.png')
+plt.show()
+```
+
+![J_vs_epoch_multiclass_mlp]({{ site.url }}{{ site.baseurl }}/assets/images/3_J_vs_epoch.png)
+
+Finally, we test the model on unseen data.
+
+```python
+# Feedforward
+Z1 = X_test.dot(W1) + b1  # (1500 X 5)
+A1 = sigmoid(Z1)  # (1500 X 5)
+
+Z2 = A1.dot(W2) + b2 # (1500 X 3)
+A2 = softmax(Z2) # (1500 X 3)
+
+Y_hat = A2.round()
+
+# calculate test error
+J_test = cost_function(Y_test, A2)
+print('Train error final: ', J)
+print('Test error final: ', J_test)
+
+plt.scatter(X[:,0], X[:,1], c=Y, cmap=plt.cm.rainbow, label="Train set") 
+plt.scatter(X_test[:,0], X_test[:,1], c=Y_hat, cmap=plt.cm.rainbow, marker='x', label="Test set")
+plt.xlabel('$X_1$')
+plt.ylabel('$X_2$')
+plt.legend()
+plt.savefig('plots/3_test_vs_train.png')
+plt.show()
+
+```
+
+![test_vs_train_multiclass_mlp]({{ site.url }}{{ site.baseurl }}/assets/images/3_test_vs_train.png)
+
+
+You can find the code on [my Github](https://github.com/PierreExeter/neural-networks-python).
+
+## Conclusion
+
+We successfully implemented a neural network that can classify observations into three classes.
+

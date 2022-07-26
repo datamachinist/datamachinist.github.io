@@ -102,39 +102,43 @@ It is clearly evident from the dataset that a person's obesity is indicative of 
 
 ### The code
 
-We will base our implementation on the neural network architecture described above. We start by importing some libraries and defining the Sigmoid function and its derivative. We then define our data set and the hyperparameters of the model. During the training phase, we perform feedforward and backpropagation steps. We can then plot the evolution of the cost, weights and bias with the number of iterations (epoch). Finally, we test our neural network on some unseen examples.
+We will base our implementation on the neural network architecture described above. We start by importing some libraries and defining the Sigmoid function and its derivative.
 
 ```python
-'''
-Numpy implementation of a single-layer perceptron
-with 3 neurons in the input layer (3 features)
-and 1 output neuron (binary classification)
-'''
-
 from matplotlib import pyplot as plt  
 import numpy as np  
+
 
 def sigmoid(x):  
     return 1/(1+np.exp(-x))
 
 def sigmoid_der(x):  
-    return sigmoid(x)*(1-sigmoid(x))
+    return sigmoid(x) * (1-sigmoid(x))
+```
 
-# CREATE DATA SET
-X = np.array([[0,1,0], [0,0,1], [1,0,0], [1,1,0], [1,1,1]])  
-y = np.array([[1,0,0,1,1]])  
-y = y.reshape(5,1)  
+We then define our data set based on the problem described above.
 
-# HYPERPARAMETERS
+```python
+X = np.array([[0, 1, 0], [0, 0, 1], [1, 0, 0], [1, 1, 0], [1, 1, 1]])  
+y = np.array([[1, 0, 0, 1, 1]])  
+y = y.reshape(5, 1)
+```
+
+We initialise the weights and biases randomly and we define the hyperparameters of the model.
+
+```python
 np.random.seed(42)  
 weights = np.random.rand(3, 1)  
 bias = np.random.rand(1)  
-lr = 0.05        # learning rate
+alpha = 0.05        # learning rate
 nb_epoch = 20000
 H = np.zeros((nb_epoch, 6))  # history
-m = len(X)
+m = len(X)   # number of observations
+```
 
-# TRAINING
+During the training phase, we perform feedforward and backpropagation steps using the MSE cost function, the chain rule and the gradient descent algorithm.
+
+```python
 for epoch in range(nb_epoch):  
 
     # FEEDFORWARD
@@ -143,8 +147,7 @@ for epoch in range(nb_epoch):
 
     # BACKPROPAGATION
     # 1. cost function: MSE
-    J = (1/m)*(a - y)**2   # (5X1)
-    print(J.sum())
+    J = (1/m) * (a - y)**2   # (5X1)
 
     # 2. weights
     dJ_da = (2/m)*(a-y) 
@@ -152,11 +155,11 @@ for epoch in range(nb_epoch):
     dz_dw = X.T
 
     gradient_w = np.dot(dz_dw, da_dz*dJ_da)  # chain rule 
-    weights -= lr * gradient_w               # gradient descent
+    weights -= alpha*gradient_w               # gradient descent
 
     # 3. bias
     gradient_b = da_dz*dJ_da   # chain rule
-    bias -= lr*sum(gradient_b)  # gradient descent
+    bias -= alpha*sum(gradient_b)  # gradient descent
 
     # Record history for plotting
     H[epoch, 0] = epoch
@@ -164,56 +167,70 @@ for epoch in range(nb_epoch):
     H[epoch, 2:5] = np.ravel(weights)
     H[epoch, 5] = np.asscalar(bias)
 
-# PLOT 
+    print("Epoch {}/{} | cost function: {}".format(epoch, nb_epoch, J.sum()))
+```
+
+We can then plot the evolution of the cost function, weights and bias with the number of iterations (epoch).
+
+```python
 plt.plot(H[:, 0], H[:, 1])
-plt.xlabel('nb epoch')
+plt.xlabel('Epoch #')
 plt.ylabel('Training error')
-plt.savefig('J_vs_epoch.png')
+plt.savefig('plots/1_J_vs_epoch.png')
 plt.show()
 
 plt.plot(H[:, 0], H[:, 2], label='$w_{11}$')
 plt.plot(H[:, 0], H[:, 3], label='$w_{21}$')
 plt.plot(H[:, 0], H[:, 4], label='$w_{31}$')
-plt.xlabel('nb epoch')
+plt.xlabel('Epoch #')
 plt.ylabel('Weights')
 plt.legend()
-plt.savefig('Weights_vs_epoch.png')
+plt.savefig('plots/1_weights_vs_epoch.png')
 plt.show()
 
 plt.plot(H[:, 0], H[:, 5])
-plt.xlabel('nb epoch')
+plt.xlabel('Epoch #')
 plt.ylabel('Bias')
-plt.savefig('Bias_vs_epoch.png')
+plt.savefig('plots/1_bias_vs_epoch.png')
 plt.show()
-
-
-# TEST PHASE
-example1 = np.array([1,0,0])  
-result1 = sigmoid(np.dot(example1, weights) + bias)  
-print(result1.round())
-print('A person who is smoking, not obese and does not exercise is classified as not diabetic.')
-
-example2 = np.array([0,1,0])  
-result2 = sigmoid(np.dot(example2, weights) + bias)  
-print(result2.round())
-print('A person who is not smoking, obese and does not exercise is classified as diabetic.')
 ```
 
-In example 1, a person who is smoking, not obese and does not exercise is classified as not diabetic. In example 2, a person who is not smoking, obese and does not exercise is classified as diabetic.
-
-
-![MSE vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/J_vs_epoch.png)
+![MSE vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/1_J_vs_epoch.png)
 <sub><sup>*MSE vs epoch*</sup></sub>
 
 The training error (MSE) keeps decreasing with the number of iterations, which is a good sign. 
 
-![Weights_vs_epoch]({{ site.url }}{{ site.baseurl }}/assets/images/Weights_vs_epoch.png)
+![Weights_vs_epoch]({{ site.url }}{{ site.baseurl }}/assets/images/1_weights_vs_epoch.png)
 <sub><sup>*Weights vs epoch*</sup></sub>
 
 We can also notice that the weight $$w_{21}$$ becomes predominant after many iterations. This is because the 2nd feature (obesity) is very highly correlated with the output variable (diabetic).
 
-![Bias vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/Bias_vs_epoch.png)
+![Bias vs epoch]({{ site.url }}{{ site.baseurl }}/assets/images/1_bias_vs_epoch.png)
 <sub><sup>*Bias vs epoch*</sup></sub>
+
+
+Finally, we test our neural network on some unseen examples. Let's consider two "new" people who did not appear in the training set. For example, a smoker not obese who does some exercise (defined by `[1, 0, 1]`) is classified as not diabetic.
+
+```python
+example1 = np.array([1, 0, 1])  
+result1 = sigmoid(np.dot(example1, weights) + bias)  
+print(result1.round())
+
+>> [0.]
+```
+
+However, an obese non-smoker who exercises (`[0, 1, 1]`) is predicted to be diabetic.
+
+```python
+example2 = np.array([0, 1, 1])  
+result2 = sigmoid(np.dot(example2, weights) + bias)  
+print(result2.round())
+
+>> [1.]
+```
+
+You can find the code on [my Github](https://github.com/PierreExeter/neural-networks-python).
+
 
 ## Conclusion
 
