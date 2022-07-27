@@ -126,7 +126,7 @@ for epoch in range(nb_epoch):
 ```
 
 
-We can plot the evolution of the cost function, weights and bias with the number of iterations (epoch).
+We can plot the evolution of the cost function and weights with the number of iterations (epoch).
 
 ```python
 plt.plot(H[:, 0], H[:, 1])
