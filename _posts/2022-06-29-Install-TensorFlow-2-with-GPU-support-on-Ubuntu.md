@@ -1,5 +1,5 @@
 ---
-title:  "Part 7 : Install TensorFlow 2 with GPU support using Docker on Ubuntu"
+title:  "Part 8 : Install TensorFlow 2 with GPU support using Docker on Ubuntu"
 excerpt: "Installing TensorFlow with GPU support on Ubuntu can be troublesome. We will see how to use Docker avoid a headache."
 toc: true
 category:

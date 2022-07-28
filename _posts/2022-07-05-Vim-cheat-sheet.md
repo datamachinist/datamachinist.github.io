@@ -16,7 +16,7 @@ category:
 
 ## Cheat sheet
 
-You can download a printable Vim command line cheat sheet [here]({{ site.url }}{{ site.baseurl }}/assets/downloads/vim-cheat-sheet.pdf) ([Source](https://cheatography.com/zoltan/cheat-sheets/basic-vim/)).
+You can download a printable Vim command line cheat sheet [here]({{ site.url }}{{ site.baseurl }}/assets/downloads/Vim_Cheat_Sheet.jpg).
 
 
 | Command                | Description                                                         |

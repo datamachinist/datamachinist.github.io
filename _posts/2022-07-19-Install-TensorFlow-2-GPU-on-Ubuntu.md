@@ -1,5 +1,5 @@
 ---
-title:  "Part 8 : Install TensorFlow 2 GPU support on Ubuntu"
+title:  "Part 9 : Install TensorFlow 2 GPU support on Ubuntu"
 excerpt: "A step-by-step instructions to install Tensorflow2 with GPU support on Ubuntu"
 toc: true
 category:
